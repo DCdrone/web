@@ -13,7 +13,7 @@
    </head>
    <body>
    
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" style="border-radius:0">
    	<div class="navbar-header">
       	<button type="button" class="navbar-toggle" data-toggle="collapse" 
          data-target="#example-navbar-collapse">
@@ -41,7 +41,44 @@
       		</ul>
    		</div>
 	</nav> 
-      
+    
+   <div class="container">
+   <div class="row" >
+      <div class="col-xs-6 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                                          这是一个基本的面板
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                                          这是一个基本的面板
+            </div>
+        </div>
+      </div>
+
+      <div class="clearfix visible-xs"></div>
+
+      <div class="col-xs-6 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                                          这是一个基本的面板
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                                          这是一个基本的面板
+            </div>
+        </div>
+      </div>
+   </div>
+</div>
+
+    
   
 
    </body>
