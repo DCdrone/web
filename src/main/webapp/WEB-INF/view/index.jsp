@@ -6,10 +6,17 @@
    <head>
       <title>Bootstrap</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="css/bootstrap.min.css" rel="stylesheet">  
-      <script src="js/jquery-1.12.2.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-    
+      <%
+	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
+      %>
+      <jsp:include page="js.jsp"></jsp:include>
+      
+      <script type="text/javascript">
+	    jQuery(function($) {
+			_dc_common.init('<%=basePath%>',${topNews});
+		}); 
+      </script>
+  
    </head>
    <body>
    
@@ -43,40 +50,9 @@
 	</nav> 
     
    <div class="container">
-   <div class="row" >
-      <div class="col-xs-6 col-sm-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                                          这是一个基本的面板
-            </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                                          这是一个基本的面板
-            </div>
-        </div>
-      </div>
-
-      <div class="clearfix visible-xs"></div>
-
-      <div class="col-xs-6 col-sm-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                                          这是一个基本的面板
-            </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                                          这是一个基本的面板
-            </div>
-        </div>
-      </div>
+       <div class="row" >
+       </div>
    </div>
-</div>
 
     
   
