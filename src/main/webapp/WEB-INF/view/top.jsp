@@ -10,13 +10,6 @@
 	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
       %>
       <jsp:include page="js.jsp"></jsp:include>
-      
-      <script type="text/javascript">
-	    jQuery(function($) {
-			_dc_common.init('<%=basePath%>',${topNews});
-		}); 
-      </script>
-  
    </head>
    <body>
    
@@ -36,13 +29,13 @@
          		<li><a href="#">大数据</a></li>
          		<li><a href="<%=basePath%>cloud">云计算</a></li>
          		<li class="dropdown">
-            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">手绘 <b class="caret"></b></a>
+            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<b class="caret"></b></a>
             		<ul class="dropdown-menu">
-               			<li><a href="#">SAI</a></li>
-               			<li><a href="#">PhotoShop</a></li>
-               			<li><a href="#">素描</a></li>
+               			<li><a href="#">无人机</a></li>
+               			<li><a href="#">机器学习</a></li>
+               			<li><a href="#">图像分析</a></li>
                			<li class="divider"></li>
-               			<li><a href="#">其他</a></li>               	
+               			<li><a href="#">。。。</a></li>               	
             		</ul>
          		</li>
       		</ul>

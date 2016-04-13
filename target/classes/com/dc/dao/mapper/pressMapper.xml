@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dc.dao.pressMapper">
+	<resultMap id="press" type="com.dc.entity.press">
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="updateDate" property="updateDate" jdbcType="VARCHAR" />
+		<result column="context" property="context" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getByTitle" resultMap="press">
+		select
+		a.title, a.updateDate, a.author, a.context
+		from
+		press a
+		where a.title =#{title,jdbcType=VARCHAR}
+	</select>
+</mapper>
