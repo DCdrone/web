@@ -25,18 +25,18 @@ import java.util.List;
  */
 
 @Controller
-public class index {
+public class cloud {
 	
-	@Resource
-	TopnewsService topnewsService;
+	//@Resource
+	//TopnewsService topnewsService;
 
-	@RequestMapping("/")
+	@RequestMapping("/cloud")
 	public ModelAndView mainPage(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		ModelAndView view = new ModelAndView("index");
-		List<topnews> news = this.topnewsService.getAllTopnews();
-		view.addObject("topNews", JSONArray.fromObject(news));
+		ModelAndView view = new ModelAndView("cloud_index");
+		//List<topnews> news = this.topnewsService.getAllTopnews();
+		//view.addObject("topNews", JSONArray.fromObject(news));
 		return view;
 
 	}
