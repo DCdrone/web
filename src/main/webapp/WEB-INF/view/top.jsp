@@ -7,9 +7,17 @@
       <title>Bootstrap</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <%
-	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ request.getContextPath() + "/";
+	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ "/web/";
       %>
-      <jsp:include page="js.jsp"></jsp:include>
+      <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css" />
+      <%-- <link rel="stylesheet" href="<%=basePath%>css/bootstrap-combined.min.css" />
+      <link rel="stylesheet" href="<%=basePath%>css/font-awesome.css" /> --%>
+      <script src="<%=basePath%>js/jquery-1.12.2.min.js"></script>
+      <script src="<%=basePath%>js/bootstrap.min.js"></script>
+      <script src="<%=basePath%>js/init.js"></script>
+      
+     <%--  <jsp:include page="js.jsp"></jsp:include> --%>
+      
    </head>
    <body>
    
@@ -28,6 +36,7 @@
       		<ul class="nav navbar-nav">
          		<li><a href="#">大数据</a></li>
          		<li><a href="<%=basePath%>cloud">云计算</a></li>
+         		<li><a href="<%=basePath%>author">管理员</a></li>
          		<li class="dropdown">
             		<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<b class="caret"></b></a>
             		<ul class="dropdown-menu">
