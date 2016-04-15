@@ -68,8 +68,10 @@
 							</div-->
 					</div>
 					<div id='editor' class='span9' style='' contenteditable>
-						<h1>这是什么奇怪的文字</h1>
+					<!-- <div id='editor2' class='span9' style='' contenteditable> -->	
 					</div>
+					
+					<input id='loadandsave' class="btn btn-default" type="submit" value="提交">
 				</div>
 			</div>	
 		</div>
@@ -92,4 +94,26 @@
 				})
 			});
 		</script>
+		<script type="text/javascript">
+            $.ajax({  
+                data:"title=实例博客",  
+                type:"GET",  
+                dataType: 'json', 
+                contentType : 'application/json',
+                url:"<%=basePath%>cloud/getPress",  
+                error:function(data){  
+                   alert("出错了！！:"+data.msg);  
+                },  
+                success:function(data){  
+                    $('#editor').empty().append(data.msg[0].context); 
+                }  
+                }); 
+        </script>
+        <script type="text/javascript">
+            $('#loadandsave').click(function(e) {
+            	var p_html = $('#editor').html();
+            	console.log(p_html);
+            });
+        	
+        </script>
 	</body>

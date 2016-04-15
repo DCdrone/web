@@ -11,7 +11,8 @@ var _dc_common = {
 		$_s = this;
 		$.each(topNews,function(i,obj){
 			content += "<div class=\"col-xs-6 col-sm-4 col-lg-4\"><div class=\"panel panel-default\" style=\"height:250px\"><div class=\"panel-body\" style=\"display:none\">";
-			content += "<a href=\"#\"><img src=\"img/"+obj.picture+"\"><\/a>";
+			//content += "<a href=\"#\"><img src=\"img/"+obj.picture+"\"><\/a>";
+			content += "<a href=\"#\"><\/a>";
 			content += "</div></div></div>\n";
 		});
 		$('.container').find('.row').empty().append(content);

@@ -30,7 +30,7 @@
                 type:"GET",  
                 dataType: 'json', 
                 contentType : 'application/json',
-                url:"cloud/getPress",  
+                url:"<%=basePath%>cloud/getPress",  
                 error:function(data){  
                    alert("出错了！！:"+data.msg);  
                 },  
