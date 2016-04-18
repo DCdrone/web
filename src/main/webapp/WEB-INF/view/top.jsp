@@ -36,7 +36,7 @@
       		<ul class="nav navbar-nav">
          		<li><a href="#">大数据</a></li>
          		<li><a href="<%=basePath%>cloud">云计算</a></li>
-         		<li><a href="<%=basePath%>author">管理员</a></li>
+         		<li><a href="<%=basePath%>login">管理员</a></li>
          		<li class="dropdown">
             		<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<b class="caret"></b></a>
             		<ul class="dropdown-menu">

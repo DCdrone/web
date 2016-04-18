@@ -36,21 +36,32 @@ import java.util.List;
  */
 
 @Controller
-public class author {
+public class login {
 	
-	@RequestMapping("/author")
-	public ModelAndView mainPage(HttpServletRequest request,
-			HttpServletResponse response) {
-		ModelAndView view = new ModelAndView("redirect:/author/11");
+	@RequestMapping(value="/login" )
+	public ModelAndView loginPage(HttpServletRequest request, HttpServletResponse response) {
+		String username = (String) request.getSession().getAttribute("username");
+		//System.out.println("Is it running?");
+		//System.out.println("---------"+username);
+		if (username != null ) {
+			//System.out.println("Is it running222?");
+			ModelAndView view = new ModelAndView("redirect:/author/"+username);
+			return view;
+		}
+		ModelAndView view = new ModelAndView("login");
 		return view;
 	}
 	
-	@RequestMapping(value = "/author/{id}")
-	public ModelAndView getPress(@PathVariable Long id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
-         
-        ModelAndView view = new ModelAndView("author");
-        view.addObject("author", id);     
-        return view;  
-    }  
+	@RequestMapping(value="/login.do")
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+		//System.out.println("Is it running?");
+		String username = request.getParameter("username");
+	    String password = request.getParameter("password");
+	    //System.out.print(username);
+	    //System.out.print(password);
+	    request.getSession().setAttribute("username", username);
+		ModelAndView view = new ModelAndView("redirect:/author/"+username);
+		return view;
+	}
 }
 
