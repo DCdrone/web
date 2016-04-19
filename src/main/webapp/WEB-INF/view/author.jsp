@@ -36,32 +36,32 @@
 						</div>
 	
 						<div class='btn-group'>
-							<a class='btn btn-primary' data-role='justifyLeft' href='#'><span class="glyphicon glyphicon-align-left"></span></a>
-							<a class='btn btn-primary' data-role='justifyCenter' href='#'><span class="glyphicon glyphicon-align-center"></span></a>
-							<a class='btn btn-primary' data-role='justifyRight' href='#'><span class="glyphicon glyphicon-align-right"></span></a>
-							<a class='btn btn-primary' data-role='justifyFull' href='#'><span class="glyphicon glyphicon-align-justify"></span></a>
+							<a class='btn btn-primary' data-role='justifyLeft' href='javascript:void(0)'><span class="glyphicon glyphicon-align-left"></span></a>
+							<a class='btn btn-primary' data-role='justifyCenter' href='javascript:void(0)'><span class="glyphicon glyphicon-align-center"></span></a>
+							<a class='btn btn-primary' data-role='justifyRight' href='javascript:void(0)'><span class="glyphicon glyphicon-align-right"></span></a>
+							<a class='btn btn-primary' data-role='justifyFull' href='javascript:void(0)'><span class="glyphicon glyphicon-align-justify"></span></a>
 						</div>
 						<div class='btn-group'>
-							<a class='btn btn-primary' data-role='indent' href='#'><span class="glyphicon glyphicon-indent-left"></span></a>
-							<a class='btn btn-primary' data-role='outdent' href='#'><span class="glyphicon glyphicon-indent-right"></span></a>
+							<a class='btn btn-primary' data-role='indent' href='javascript:void(0)'><span class="glyphicon glyphicon-indent-left"></span></a>
+							<a class='btn btn-primary' data-role='outdent' href='javascript:void(0)'><span class="glyphicon glyphicon-indent-right"></span></a>
 						</div>
 						<div class='btn-group'>
-							<a class='btn btn-primary' data-role='insertUnorderedList' href='#'><span class="glyphicon glyphicon-list"></span></a>
-							<a class='btn btn-primary' data-role='insertOrderedList' href='#'><span class="glyphicon glyphicon-list"></span></a>
+							<a class='btn btn-primary' data-role='insertUnorderedList' href='javascript:void(0)'><span class="glyphicon glyphicon-list"></span></a>
+							<a class='btn btn-primary' data-role='insertOrderedList' href='javascript:void(0)'><span class="glyphicon glyphicon-list"></span></a>
 						</div>
 						
 						<div class='btn-group'>
-							<a class='btn btn-primary' data-role='bold' href='#'><b>Bold</b></a>
-							<a class='btn btn-primary' data-role='italic' href='#'><em>Italic</em></a>
-							<a class='btn btn-primary' data-role='underline' href='#'><u><b>U</b></u></a>
-							<a class='btn btn-primary' data-role='strikeThrough' href='#'><strike>abc</strike></a>
+							<a class='btn btn-primary' data-role='bold' href='javascript:void(0)'><b>Bold</b></a>
+							<a class='btn btn-primary' data-role='italic' href='javascript:void(0)'><em>Italic</em></a>
+							<a class='btn btn-primary' data-role='underline' href='javascript:void(0)'><u><b>U</b></u></a>
+							<a class='btn btn-primary' data-role='strikeThrough' href='javascript:void(0)'><strike>abc</strike></a>
 						</div>
 						<div class='btn-group'>
-							<a class='btn btn-primary' data-role='h1' href='#'>h<sup>1</sup></a>
-							<a class='btn btn-primary' data-role='h2' href='#'>h<sup>2</sup></a>
-							<a class='btn btn-primary' data-role='p' href='#'>p</a>
-							<a class='btn btn-primary' data-role='pre' href='#'>Code</a>
-							<a class='btn btn-primary' data-role='blockquote' href='#'>HighLight</a>
+							<a class='btn btn-primary' data-role='h1' href='javascript:void(0)'>h<sup>1</sup></a>
+							<a class='btn btn-primary' data-role='h2' href='javascript:void(0)'>h<sup>2</sup></a>
+							<a class='btn btn-primary' data-role='p' href='javascript:void(0)'>p</a>
+							<a class='btn btn-primary' data-role='pre' href='###'>Code</a>
+							<a class='btn btn-primary' data-role='blockquote' href='###'>HighLight</a>
 						</div>
 							<!--div class='btn-group'>
 								<a class='btn' data-role='subscript' href='#'><i class='icon-subscript'></i></a>
