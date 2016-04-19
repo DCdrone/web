@@ -31,6 +31,24 @@
 	<mvc:resources mapping="/modulejs/**" location="/modulejs/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
 	<mvc:resources mapping="/fonts/**" location="/fonts/" />
+	
+	<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/author/**" />
+                <bean class="com.dc.security.Security">
+                </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
+    <bean id="handlerExceptionResolver"
+        class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.dc.security.AuthorizationException">redirect:/login</prop>
+            </props>
+    </property>
+    </bean>
+    
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />

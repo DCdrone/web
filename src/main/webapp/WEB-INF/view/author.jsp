@@ -61,6 +61,7 @@
 							<a class='btn btn-primary' data-role='h2' href='#'>h<sup>2</sup></a>
 							<a class='btn btn-primary' data-role='p' href='#'>p</a>
 							<a class='btn btn-primary' data-role='pre' href='#'>Code</a>
+							<a class='btn btn-primary' data-role='blockquote' href='#'>HighLight</a>
 						</div>
 							<!--div class='btn-group'>
 								<a class='btn' data-role='subscript' href='#'><i class='icon-subscript'></i></a>
@@ -84,6 +85,7 @@
 						case 'h2':
 						case 'p':
 						case 'pre':
+						case 'blockquote':
 							document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
 							break;
 						default:

@@ -46,7 +46,7 @@ public class author {
 	}
 	
 	@RequestMapping(value = "/author/{id}")
-	public ModelAndView getPress(@PathVariable Long id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+	public ModelAndView getPress(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("author");
         view.addObject("author", id);     
