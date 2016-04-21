@@ -13,7 +13,14 @@ public class Security implements HandlerInterceptor {
 	    String username = (String) request.getSession().getAttribute("username");
     	String requestUri = request.getRequestURI();
     	String[] urls = requestUri.split("/");
-    	String urluser = (String) urls[urls.length-1];
+    	String urluser = "";
+    	for(int j=0;j < urls.length;j++) {
+    		if(urls[j].equals("author")) {
+    			if(j==urls.length-1) { break; }
+    			urluser = urls[j+1];
+    			break;
+    		}
+    	}
     	//System.out.println("---------------------------");
     	//System.out.println(username);
     	//System.out.println(urluser);

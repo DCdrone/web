@@ -46,11 +46,19 @@ public class author {
 	}
 	
 	@RequestMapping(value = "/author/{id}")
-	public ModelAndView getPress(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+	public ModelAndView dashboard(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("author");
         view.addObject("author", id);     
         return view;  
     }  
+	
+	@RequestMapping(value = "/author/{id}/blog")
+	public ModelAndView blogEdit(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+         
+        ModelAndView view = new ModelAndView("blog");
+        view.addObject("author", id);     
+        return view;  
+    } 
 }
 

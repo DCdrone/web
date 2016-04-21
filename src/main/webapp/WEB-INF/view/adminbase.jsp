@@ -52,10 +52,20 @@
                     </li>
                     <li class="xn-title">导航栏</li>
                     <li class="active">
-                        <a href="<%=basePath%>author/${author}"><span class="fa fa-desktop"></span> <span class="xn-text">控制面板</span></a>                        
+                        <a href="<%=basePath%>author"><span class="fa fa-desktop"></span> <span class="xn-text">控制面板</span></a>                        
                     </li>                    
-                    <li class="">
-                        <a href="<%=basePath%>author/${author}/blog"><span class="fa fa-file"></span> <span class="xn-text">博客管理</span></a>               
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">内容管理</span></a>
+                        <ul>                 
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-file"></span> 博客</a>
+                                
+                                <ul>                                    
+                                    <li><a href="pages-blog-list.html"><span class="fa fa-copy"></span> 博客列表</a></li>
+                                    <li><a href="pages-blog-post.html"><span class="fa fa-file-o"></span>单个博客</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
                     </li>
                 </ul>
                 <!-- END X-NAVIGATION -->
