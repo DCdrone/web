@@ -54,10 +54,19 @@ public class author {
     }  
 	
 	@RequestMapping(value = "/author/{id}/blog")
-	public ModelAndView blogEdit(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+	public ModelAndView blogList(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("blog");
         view.addObject("author", id);     
+        return view;  
+    } 
+	
+	@RequestMapping(value = "/author/{id}/blog/{blogid}")
+	public ModelAndView blogEdit(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+         
+        ModelAndView view = new ModelAndView("blogedit");
+        view.addObject("author", id);
+        view.addObject("blog", id); 
         return view;  
     } 
 }
