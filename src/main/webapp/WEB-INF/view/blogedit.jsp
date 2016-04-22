@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>        
         <!-- META SECTION -->
          <%
 	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ "/web/";
-         %>
+         %> 
         <title>控制台</title>            
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,11 +17,17 @@
         
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="<%=basePath%>css/theme-default.css"/>
+        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>    
        
-        <!-- EOF CSS INCLUDE -->                                    
+                     
     </head>
     <body>
-        <!-- START PAGE CONTAINER -->
+    
+   
+	
+       <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
@@ -102,50 +109,92 @@
                     <li class="active">Posts</li>
                 </ul>
                 <!-- END BREADCRUMB -->
-                
-                <!-- PAGE TITLE -->
-                <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Posts</h2>
-                </div>
-                <!-- END PAGE TITLE -->                
-                
+                             
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                     
                     <div class="row">
-                        <div class="col-md-9">
+                        <div id="coreedit" class="col-md-9">
                             
                             <div class="panel panel-default">
                                 <div class="panel-body posts">
                                     
                                     <div class="post-item">
                                         <div class="post-title">
-                                            Outer space
+                                                                                                                                                              这个文章的名字后续也要能更改
                                         </div>
                                         <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / <a href="pages-blog-post.html#comments">3 Comments</a> / <a href="pages-profile.html">by Dmitry Ivaniuk</a></div>
-                                        <div class="post-text">                                            
-                                            <p><strong>Outer space</strong>, or simply space, is the void that exists between celestial bodies, including the Earth. It is not completely empty, but consists of a hard vacuum containing a low density of particles: predominantly a plasma of hydrogen and helium.</p>
-                                            <img src="assets/images/blog/post_1.jpg" class="img-text post-image"/>
-                                            <p>There is no firm boundary where space begins. However the Kármán line, at an altitude of 100 km (62 mi) above sea level, is conventionally used as the start of outer space in space treaties and for aerospace records keeping. The framework for international space law was established by the Outer Space Treaty, which was passed by the United Nations in 1967. This treaty precludes any claims of national sovereignty and permits all states to freely explore outer space. In 1979, the Moon Treaty made the surfaces of objects such as planets, as well as the orbital space around these bodies, the jurisdiction of the international community. Despite the drafting of UN resolutions for the peaceful uses of outer space, anti-satellite weapons have been tested in Earth orbit.</p>
-                                            <p><strong>Humans began</strong> the physical exploration of space during the 20th century with the advent of high-altitude balloon flights, followed by manned rocket launches. Earth orbit was first achieved by Yuri Gagarin of the Soviet Union in 1961 and unmanned spacecraft have since reached all of the known planets in the Solar System. Due to the high cost of getting into space, manned spaceflight has been limited to low Earth orbit and the Moon. In August 2012, Voyager 1 became the first man-made spacecraft to enter interstellar space.</p>
-                                            <p>Outer space represents a challenging environment for human exploration because of the dual hazards of vacuum and radiation. <a href="#">Microgravity</a> also has a negative effect on human physiology that causes both muscle atrophy and bone loss. In addition to solving all of these health and environmental issues, humans will also need to find a way to significantly reduce the cost of getting into space if they want to become a space faring civilization. Proposed concepts for doing this are non-rocket spacelaunch, momentum exchange tethers and space elevators.</p>
-                                            <h4>Discovery</h4>
-                                            <p>In 350 BC, <i>Greek philosopher Aristotle</i> suggested that nature abhors a vacuum, a principle that became known as the horror vacui. This concept built upon a 5th-century BC ontological argument by the Greek philosopher Parmenides, who denied the possible existence of a void in space.[8] Based on this idea that a vacuum could not exist, in the West it was widely held for many centuries that space could not be empty. As late as the 17th century, the French philosopher René Descartes argued that the entirety of space must be filled.</p>
-                                            <p>In ancient China, there were various schools of thought concerning the nature of the heavens, some of which bear a resemblance to the modern understanding. In the 2nd century, astronomer Zhang Heng became convinced that space must be infinite, extending well beyond the mechanism that supported the Sun and the stars. The surviving books of the Hsüan Yeh school said that the heavens were boundless, "empty and void of substance". Likewise, the "sun, moon, and the company of stars float in the empty space, moving or standing still".</p>
-                                            <h4>Formation and state</h4>
-                                            <p>According to the Big Bang theory, the Universe originated in an extremely hot and dense state about 13.8 billion years ago and began expanding rapidly. About 380,000 years later the Universe had cooled sufficiently to allow protons and electrons to combine and form hydrogen—the so-called recombination epoch. When this happened, matter and energy became decoupled, allowing photons to travel freely through space. The matter that remained following the initial expansion has since undergone gravitational collapse to create stars, galaxies and other astronomical objects, leaving behind a deep vacuum that forms what is now called outer space. As light has a finite velocity, this theory also constrains the size of the directly observable Universe. This leaves open the question as to whether the Universe is finite or infinite.</p>
-                                            <h4>See also</h4>
-                                            <ul>
-                                                <li><a href="#">Portal icon</a></li>
-                                                <li><a href="#">Astronomy portal</a></li>
-                                                <li><a href="#">Portal icon</a></li>
-                                                <li><a href="#">Space portal</a></li>
-                                                <li><a href="#">Portal icon</a></li>	
-                                                <li><a href="#">Spaceflight portal</a></li>
-                                                <li><a href="#">Earth's location in the universe</a></li>
-                                                <li><a href="#">Human outpost</a></li>
-                                            </ul>
-                                        </div>
+                          
+                   
+					<div id='editControls' class='panel panel-default' >
+					    <div class="panel-body">				 		    	
+						<div class='btn-group'>
+							<a class='btn btn-primary' data-role='bold' href='javascript:void(0)'><b>Bold</b></a>
+							<a class='btn btn-primary' data-role='italic' href='javascript:void(0)'><em>Italic</em></a>
+							<a class='btn btn-primary' data-role='underline' href='javascript:void(0)'><u><b>U</b></u></a>
+							<a class='btn btn-primary' data-role='strikeThrough' href='javascript:void(0)'><strike>abc</strike></a>
+						</div>
+						<div class='btn-group'>
+							<a class='btn btn-primary' data-role='h1' href='javascript:void(0)'>h<sup>1</sup></a>
+							<a class='btn btn-primary' data-role='h2' href='javascript:void(0)'>h<sup>2</sup></a>
+							<a class='btn btn-primary' data-role='p' href='javascript:void(0)'>p</a>
+							<a class='btn btn-primary' data-role='pre' href='###'>Code</a>
+							<a class='btn btn-primary' data-role='blockquote' href='###'>HighLight</a>
+						</div>
+						<div class='btn-group'>
+							<a class='btn btn-primary' data-role='justifyLeft' href='javascript:void(0)'><span class="glyphicon glyphicon-align-left"></span></a>
+							<a class='btn btn-primary' data-role='justifyCenter' href='javascript:void(0)'><span class="glyphicon glyphicon-align-center"></span></a>
+							<a class='btn btn-primary' data-role='justifyRight' href='javascript:void(0)'><span class="glyphicon glyphicon-align-right"></span></a>
+							<!-- <a class='btn btn-primary' data-role='justifyFull' href='javascript:void(0)'><span class="glyphicon glyphicon-align-justify"></span></a> -->
+						</div>
+						<div class='btn-group'>
+							<a class='btn btn-primary' data-role='indent' href='javascript:void(0)'><span class="glyphicon glyphicon-indent-left"></span></a>
+							<a class='btn btn-primary' data-role='outdent' href='javascript:void(0)'><span class="glyphicon glyphicon-indent-right"></span></a>
+						</div>
+						
+						<div class='btn-group'>
+							<a class='btn btn-primary' data-role='insertUnorderedList' href='javascript:void(0)'><span class="glyphicon glyphicon-list"></span></a>
+							<a class='btn btn-primary' data-role='insertOrderedList' href='javascript:void(0)'><span class="glyphicon glyphicon-list"></span></a>
+						</div>				
+						</div>
+					</div>
+					
+					
+                    <div id="myPanel" class="panel panel-info">
+                         <div class="panel-heading">
+                               <h3 class="panel-title">文档修改中。。。</h3>
+                               <input id='loadandsave' class="btn btn-default pull-right" type="submit" value="提交">
+                         </div>
+                         <div class="panel-body">
+                             <div id='editor' class='post-test' style='overflow-y:auto; overflow-x:auto;height:500px' contenteditable=true></div>
+                         </div>
+                    </div>	
+
+	<script>
+			$(function() {
+				$('#editControls a').click(function(e) {
+					switch($(this).data('role')) {
+						case 'h1':
+						case 'h2':
+						case 'p':
+						case 'pre':
+						case 'blockquote':
+							document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
+							break;
+						default:
+							document.execCommand($(this).data('role'), false, null);
+							break;
+					}
+					
+				});
+			$("#editor").css("width",parseInt($("#myPanel").css("width"))*0.98);
+			});
+		</script>
+                          
+                          
+                          
+                          
+                                        
                                         <div class="post-row">
                                             <div class="post-info">
                                                 <span class="fa fa-thumbs-up"></span> 15 - <span class="fa fa-eye"></span> 15,332 - <span class="fa fa-star"></span> 322                                                
@@ -153,51 +202,7 @@
                                         </div>
                                     </div>
                                     
-                                    <h3 class="push-down-20">Comments</h3>
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object img-text" src="assets/images/users/user.jpg" alt="Dmitry Ivaniuk" width="64">
-                                            </a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Dmitry Ivaniuk</h4>
-                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                                <p class="text-muted">October 24, 2014, 15:20</p>
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object img-text" src="assets/images/users/user6.jpg" alt="Darh Vader" width="64">
-                                                    </a>
-                                                    <div class="media-body">
-                                                      <h4 class="media-heading">Darth Vader</h4>
-                                                      <p>What? What did you say? It's not even a language...</p>
-                                                      <p class="text-muted">October 24, 2014, 16:20</p>
-                                                    </div>
-                                                </div>                                                                                          
-                                            </div>                                            
-                                        </li>
-                                        <li class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object img-text" src="assets/images/users/user7.jpg" alt="Samuel Leroy Jackson" width="64">
-                                            </a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Samuel Leroy Jackson</h4>
-                                                <p>We happy? Vincent, we happy?</p>
-                                                <p class="text-muted">October 24, 2014, 14:30</p>
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object img-text" src="assets/images/users/user5.jpg" alt="John Travolta" width="64">
-                                                    </a>
-                                                    <div class="media-body">
-                                                      <h4 class="media-heading">John Travolta</h4>
-                                                      <p>Yeeees we happy!</p>
-                                                      <p class="text-muted">October 24, 2014, 14:32</p>
-                                                    </div>
-                                                </div>                                                                                          
-                                            </div>
-                                        </li>
-                                    </ul>
-                                   
-                                            
+                                                       
                                 </div>
                             </div>
                                           
@@ -268,9 +273,7 @@
         
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
-        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>        
+         
         <!-- END PLUGINS -->
 
         <!-- START THIS PAGE PLUGINS-->        
@@ -290,16 +293,42 @@
         <script type="text/javascript" src="<%=basePath%>js/plugins/moment.min.js"></script>
         <script type="text/javascript" src="<%=basePath%>js/plugins/daterangepicker/daterangepicker.js"></script>
         <!-- END THIS PAGE PLUGINS-->        
-
-        <!-- START TEMPLATE -->
-        <%-- <script type="text/javascript" src="<%=basePath%>js/settings.js"></script> --%>
-        
+      
         <script type="text/javascript" src="<%=basePath%>js/plugins.js"></script>        
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script>
         
         <script type="text/javascript" src="<%=basePath%>js/demo_dashboard.js"></script> 
         <!-- END TEMPLATE -->
-    <!-- END SCRIPTS -->         
+    <!-- END SCRIPTS -->   
+    
+		<script type="text/javascript">
+            $.ajax({  
+                data:"title=实例博客",  
+                type:"GET",  
+                dataType: 'json', 
+                contentType : 'application/json',
+                url:"<%=basePath%>cloud/getPress",  
+                error:function(data){  
+                   alert("出错了！！:"+data.msg);  
+                },  
+                success:function(data){  
+                    $('#editor').empty().append(data.msg[0].context); 
+                }  
+                }); 
+        </script>
+        <script type="text/javascript">
+            $('#loadandsave').click(function(e) {
+            	var p_html = $('#editor').html();
+            	console.log(p_html);
+            });
+        	
+        </script>
+    
+    
+    
+    
+    
+        
     </body>
 </html>
 
