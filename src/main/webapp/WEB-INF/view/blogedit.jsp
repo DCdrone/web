@@ -18,6 +18,7 @@
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="<%=basePath%>css/theme-default.css"/>
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
+        <!-- jquery ui提供横多小插件，比如日历选择器等。 -->
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>    
        
@@ -270,35 +271,10 @@
         <audio id="audio-alert" src="<%=basePath%>audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="<%=basePath%>audio/fail.mp3" preload="auto"></audio>
         <!-- END PRELOADS -->                  
-        
-    <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-         
-        <!-- END PLUGINS -->
-
-        <!-- START THIS PAGE PLUGINS-->        
-        <script type='text/javascript' src='<%=basePath%>js/plugins/icheck/icheck.min.js'></script>        
-        <script type="text/javascript" src="<%=basePath%>js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/scrolltotop/scrolltopcontrol.js"></script>
-        
-        <script type="text/javascript" src="<%=basePath%>js/plugins/morris/raphael-min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/morris/morris.min.js"></script>       
-        <script type="text/javascript" src="<%=basePath%>js/plugins/rickshaw/d3.v3.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/rickshaw/rickshaw.min.js"></script>
-        <script type='text/javascript' src='<%=basePath%>js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
-        <script type='text/javascript' src='<%=basePath%>js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>                
-        <script type='text/javascript' src='<%=basePath%>js/plugins/bootstrap/bootstrap-datepicker.js'></script>                
-        <script type="text/javascript" src="<%=basePath%>js/plugins/owl/owl.carousel.min.js"></script>                 
-        
-        <script type="text/javascript" src="<%=basePath%>js/plugins/moment.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- END THIS PAGE PLUGINS-->        
-      
+     
         <script type="text/javascript" src="<%=basePath%>js/plugins.js"></script>        
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script>
-        
-        <script type="text/javascript" src="<%=basePath%>js/demo_dashboard.js"></script> 
-        <!-- END TEMPLATE -->
+
     <!-- END SCRIPTS -->   
     
 		<script type="text/javascript">

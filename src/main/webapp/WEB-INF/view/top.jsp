@@ -21,7 +21,7 @@
    </head>
    <body>
    
-    <nav class="navbar navbar-default" role="navigation" style="border-radius:0">
+    <nav class="navbar navbar-default" role="navigation" style="border-radius:0;margin-bottom:0px">
    	<div class="navbar-header">
       	<button type="button" class="navbar-toggle" data-toggle="collapse" 
          data-target="#example-navbar-collapse">
