@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dc.dao.authorMapper">
+	<resultMap id="author" type="com.dc.entity.author">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="deleted" property="deleted" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="created_time" property="created_time" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<select id="getByName" resultMap="author">
+		select
+		a.id, a.deleted, a.name, a.user_id, a.password, a.created_time
+		from
+		author a
+		where a.name =#{name, jdbcType=VARCHAR}
+	</select>
+</mapper>

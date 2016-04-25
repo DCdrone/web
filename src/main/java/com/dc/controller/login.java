@@ -14,14 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.util.HashMap;  
 import java.util.Map;
+
 import net.sf.json.JSONArray;
+
 import java.io.IOException;
+
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.dc.service.TopnewsService;
-import com.dc.service.pressService;
+import com.dc.service.authorService;
 import com.dc.entity.*;
 
 import java.util.List;
@@ -38,14 +42,14 @@ import java.util.List;
 @Controller
 public class login {
 	
+	@Resource
+	authorService authorService_i;
+	
 	@RequestMapping(value="/login" )
 	public ModelAndView loginPage(HttpServletRequest request, HttpServletResponse response) {
-		String username = (String) request.getSession().getAttribute("username");
-		//System.out.println("Is it running?");
-		//System.out.println("---------"+username);
-		if (username != null ) {
-			//System.out.println("Is it running222?");
-			ModelAndView view = new ModelAndView("redirect:/author/"+username);
+		String userid = (String) request.getSession().getAttribute("userid");
+		if (userid != null ) {
+			ModelAndView view = new ModelAndView("redirect:/author/"+userid);
 			return view;
 		}
 		ModelAndView view = new ModelAndView("login");
@@ -54,13 +58,22 @@ public class login {
 	
 	@RequestMapping(value="/login.do")
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
-		//System.out.println("Is it running?");
 		String username = request.getParameter("username");
 	    String password = request.getParameter("password");
-	    //System.out.print(username);
-	    //System.out.print(password);
-	    request.getSession().setAttribute("username", username);
-		ModelAndView view = new ModelAndView("redirect:/author/"+username);
+	    Integer userid = authorService_i.getIdentity(username, password);
+	    if (userid == 0) {
+	    	ModelAndView view = new ModelAndView("redirect:/error/loginerror");
+	    	return view;
+	    }
+	    request.getSession().setAttribute("userid", userid.toString());
+		ModelAndView view = new ModelAndView("redirect:/author/"+userid.toString());
+		return view;
+	}
+	
+	@RequestMapping(value="/logout" )
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().removeAttribute("userid");
+		ModelAndView view = new ModelAndView("redirect:/login");
 		return view;
 	}
 }

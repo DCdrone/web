@@ -10,7 +10,7 @@ public class Security implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 	    // intercept
-	    String username = (String) request.getSession().getAttribute("username");
+	    String userid = (String) request.getSession().getAttribute("userid");
     	String requestUri = request.getRequestURI();
     	String[] urls = requestUri.split("/");
     	String urluser = "";
@@ -24,7 +24,7 @@ public class Security implements HandlerInterceptor {
     	//System.out.println("---------------------------");
     	//System.out.println(username);
     	//System.out.println(urluser);
-	    if (username == null || username.equals(urluser)==false) {    
+	    if (userid == null || userid.equals(urluser)==false) {    
 	    	//System.out.println("Are we exceptions?");
 	        throw new AuthorizationException();
 	    } else {

@@ -12,7 +12,7 @@
 			无法找到请求的页面
 		</div>
 		<div class="error" style="font-size: 150px">
-			无法找到请求的页面 404
+			啊呀妈呀，密码输错了。。。。。
 		</div>
 	</div>
 </body>
