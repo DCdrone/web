@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import java.io.IOException;
 
@@ -77,12 +79,16 @@ public class author {
 	
 	//以下的资源是restful的接口，他们不返回视图，用于ajax调用，进行相应的资源更新。
 	//由于处在author目录下，这些访问都受到保护
-	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST },produces="application/json;charset=UTF-8")
+	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
 	@ResponseBody
-	public Map<String,Object> updateBlog(HttpServletRequest request,HttpServletResponse response) throws IOException{
-		Map<String,Object> map = new HashMap<String,Object>(1);  
+	public Map<String,Integer> updateBlog(HttpServletRequest request, @RequestBody List<Map<String,String>> data) throws IOException{
+		Map<String,Integer> map = new HashMap<String,Integer>(1);
+		//String content = request.getParameter("content");;
+		System.out.println(data.toString());
+		System.out.println("------------------------------------------");
+		System.out.println(data);
         //press press = this.pressService.getByTitle(request.getParameter("title"));
-        //map.put("msg", JSONArray.fromObject(press));
+        map.put("msg", 0);
         //System.out.println("Finished");
         return map;  
 	}

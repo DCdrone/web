@@ -124,7 +124,7 @@
                                         <div class="post-title">
                                                                                                                                                               这个文章的名字后续也要能更改
                                         </div>
-                                        <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / <a href="pages-blog-post.html#comments">3 Comments</a> / <a href="pages-profile.html">by Dmitry Ivaniuk</a></div>
+                                        <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / by Chen Chen</div>
                           
                    
 					<div id='editControls' class='panel panel-default' >
@@ -295,7 +295,21 @@
         <script type="text/javascript">
             $('#loadandsave').click(function(e) {
             	var p_html = $('#editor').html();
-            	console.log(p_html);
+            	var send_data = [{"content":p_html}];
+            	console.log(send_data);
+            	 $.ajax({  
+                     data:$.toJSON(send_data),  
+                     type:"POST",  
+                     dataType: 'json', 
+                     contentType : 'application/json;charset=UTF-8',
+                     url:"<%=basePath%>author/12345678/resources/blog/111111",  
+                     error:function(data){  
+                        alert("出错了！！:"+data.msg);  
+                     },  
+                     success:function(data){  
+                    	alert("成功了！！:"+data.msg);
+                     }  
+                     }); 
             });
         	
         </script>
