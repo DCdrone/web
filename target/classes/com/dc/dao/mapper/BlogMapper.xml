@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dc.dao.BlogMapper">
+	<resultMap id="blog" type="com.dc.entity.Blog">
+	    <result column="id" property="id" jdbcType="INTEGER" />
+	    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="blog_id" property="blog_id" jdbcType="INTEGER" />
+		<result column="summary" property="summary" jdbcType="VARCHAR" />
+		<result column="tag" property="tag" jdbcType="VARCHAR" />
+		<result column="created_time" property="created_time" jdbcType="TIMESTAMP" />
+		<result column="updated_time" property="updated_time" jdbcType="TIMESTAMP" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getByBlogId" resultMap="blog">
+		select
+		*
+		from
+		blog a
+		where a.blog_id =#{blog_id,jdbcType=INTEGER}
+	</select>
+</mapper>

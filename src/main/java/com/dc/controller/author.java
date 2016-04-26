@@ -14,14 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.util.HashMap;  
 import java.util.Map;
+
 import net.sf.json.JSONArray;
+
 import java.io.IOException;
+
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.dc.service.TopnewsService;
-import com.dc.service.pressService;
 import com.dc.entity.*;
 
 import java.util.List;
@@ -36,16 +39,17 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping("/author")
 public class author {
 	
-	@RequestMapping("/author")
+	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,
 			HttpServletResponse response) {
 		ModelAndView view = new ModelAndView("redirect:/author/11");
 		return view;
 	}
 	
-	@RequestMapping(value = "/author/{id}")
+	@RequestMapping(value = "/{id}")
 	public ModelAndView dashboard(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("author");
@@ -53,7 +57,7 @@ public class author {
         return view;  
     }  
 	
-	@RequestMapping(value = "/author/{id}/blog")
+	@RequestMapping(value = "/{id}/blog")
 	public ModelAndView blogList(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("blog");
@@ -61,13 +65,27 @@ public class author {
         return view;  
     } 
 	
-	@RequestMapping(value = "/author/{id}/blog/{blogid}")
+	@RequestMapping(value = "/{id}/blog/{blogid}")
 	public ModelAndView blogEdit(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
         ModelAndView view = new ModelAndView("blogedit");
         view.addObject("author", id);
         view.addObject("blog", id); 
-        return view;  
+        return view; 
     } 
+	
+	
+	//以下的资源是restful的接口，他们不返回视图，用于ajax调用，进行相应的资源更新。
+	//由于处在author目录下，这些访问都受到保护
+	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST },produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String,Object> updateBlog(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		Map<String,Object> map = new HashMap<String,Object>(1);  
+        //press press = this.pressService.getByTitle(request.getParameter("title"));
+        //map.put("msg", JSONArray.fromObject(press));
+        //System.out.println("Finished");
+        return map;  
+	}
+	
 }
 

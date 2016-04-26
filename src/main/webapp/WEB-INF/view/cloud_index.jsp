@@ -26,16 +26,16 @@
             </script> -->
             <script type="text/javascript">
             $.ajax({  
-                data:"title=实例博客",  
+                data:"blog_id=111111",  
                 type:"GET",  
                 dataType: 'json', 
                 contentType : 'application/json',
-                url:"<%=basePath%>cloud/getPress",  
+                url:"<%=basePath%>cloud/getBlog",  
                 error:function(data){  
                    alert("出错了！！:"+data.msg);  
                 },  
                 success:function(data){  
-                    $('.blog-post').find('.context').empty().append(data.msg[0].context); 
+                    $('.blog-post').find('.context').empty().append(data.msg[0].content); 
                 }  
                 }); 
             </script>

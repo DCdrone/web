@@ -20,7 +20,7 @@ import net.sf.json.JSONArray;
 import java.io.IOException;
 
 import com.dc.service.TopnewsService;
-import com.dc.service.pressService;
+import com.dc.service.BlogService;
 import com.dc.entity.*;
 
 import java.util.List;
@@ -38,7 +38,7 @@ import java.util.List;
 public class cloud {
 	
 	@Resource
-	pressService pressService;
+	BlogService blogService;
 
 	@RequestMapping("/cloud")
 	public ModelAndView mainPage(HttpServletRequest request,
@@ -48,14 +48,14 @@ public class cloud {
 
 	}
 	
-	@RequestMapping(value = "/cloud/getPress", method = { RequestMethod.GET },produces="application/json;charset=UTF-8")
+	@RequestMapping(value = "/cloud/getBlog", method = { RequestMethod.GET },produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public Map<String,Object> getPress(HttpServletRequest request,HttpServletResponse response) throws IOException{  
         //System.out.println(request.getParameter("title"));  
         Map<String,Object> map = new HashMap<String,Object>(1);  
-        press press = this.pressService.getByTitle(request.getParameter("title"));
+        Blog blog = this.blogService.getByBlogId(Integer.parseInt(request.getParameter("blog_id")));
         //System.out.println(press.getContext());
-        map.put("msg", JSONArray.fromObject(press));
+        map.put("msg", JSONArray.fromObject(blog));
         //System.out.println("Finished");
         return map;  
     }  
