@@ -295,10 +295,10 @@
         <script type="text/javascript">
             $('#loadandsave').click(function(e) {
             	var p_html = $('#editor').html();
-            	var send_data = [{"content":p_html}];
+            	var send_data = {"content":p_html};
             	console.log(send_data);
             	 $.ajax({  
-                     data:$.toJSON(send_data),  
+                     data:send_data,  
                      type:"POST",  
                      dataType: 'json', 
                      contentType : 'application/json;charset=UTF-8',

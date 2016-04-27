@@ -81,12 +81,13 @@ public class author {
 	//由于处在author目录下，这些访问都受到保护
 	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
 	@ResponseBody
-	public Map<String,Integer> updateBlog(HttpServletRequest request, @RequestBody List<Map<String,String>> data) throws IOException{
+	public Map<String,Integer> updateBlog(@RequestBody String body) throws IOException{
 		Map<String,Integer> map = new HashMap<String,Integer>(1);
 		//String content = request.getParameter("content");;
-		System.out.println(data.toString());
+		System.out.println(body.toString());
 		System.out.println("------------------------------------------");
-		System.out.println(data);
+		//System.out.println(request.getParameter("content"));
+		System.out.println(body);
         //press press = this.pressService.getByTitle(request.getParameter("title"));
         map.put("msg", 0);
         //System.out.println("Finished");
