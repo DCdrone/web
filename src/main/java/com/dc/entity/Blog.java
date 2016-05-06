@@ -14,7 +14,10 @@ public class Blog {
     private String content;   
     private String summary;
     
-   
+    public Blog() {
+    	
+    }   
+    
     public void setId(Integer id) {
     	this.id = id;
     }

@@ -295,8 +295,7 @@
         <script type="text/javascript">
             $('#loadandsave').click(function(e) {
             	var p_html = $('#editor').html();
-            	var send_data = {"content":p_html};
-            	console.log(send_data);
+            	var send_data = "{\"content\":\"2\\\"\\\"22\"}";
             	 $.ajax({  
                      data:send_data,  
                      type:"POST",  

@@ -3,33 +3,25 @@ package com.dc.controller;
 //import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
-
-//import org.apache.log4j.Logger;
-import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;  
 import java.util.Map;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import java.io.IOException;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.dc.service.TopnewsService;
 import com.dc.entity.*;
 
-import java.util.List;
 
 /**
  * @Title: 
@@ -81,16 +73,11 @@ public class author {
 	//由于处在author目录下，这些访问都受到保护
 	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
 	@ResponseBody
-	public Map<String,Integer> updateBlog(@RequestBody String body) throws IOException{
+	public Map<String,Integer> updateBlog(@Valid @RequestBody Blog blog) throws IOException{
 		Map<String,Integer> map = new HashMap<String,Integer>(1);
-		//String content = request.getParameter("content");;
-		System.out.println(body.toString());
-		System.out.println("------------------------------------------");
-		//System.out.println(request.getParameter("content"));
-		System.out.println(body);
-        //press press = this.pressService.getByTitle(request.getParameter("title"));
+		System.out.println("--------------");
+		System.out.println(blog.getContent());
         map.put("msg", 0);
-        //System.out.println("Finished");
         return map;  
 	}
 	

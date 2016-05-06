@@ -57,6 +57,4 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="stringHttpMessageConverter"
-		class="org.springframework.http.converter.StringHttpMessageConverter" />
 </beans>    
