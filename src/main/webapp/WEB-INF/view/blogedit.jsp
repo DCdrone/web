@@ -122,7 +122,8 @@
                                     
                                     <div class="post-item">
                                         <div class="post-title">
-                                                                                                                                                              这个文章的名字后续也要能更改
+                                            <div id="etitle" contenteditable=true>                                         
+                                            </div>                                                                                                                                                
                                         </div>
                                         <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / by Chen Chen</div>
                           
@@ -279,7 +280,7 @@
     
 		<script type="text/javascript">
             $.ajax({  
-                data:"blog_id=111111",  
+                data:"blog_id=${blog}",  
                 type:"GET",  
                 dataType: 'json', 
                 contentType : 'application/json',
@@ -288,25 +289,27 @@
                    alert("出错了！！:"+data.msg);  
                 },  
                 success:function(data){  
-                    $('#editor').empty().append(data.msg[0].content); 
+                    $('#editor').empty().append(data.msg[0].content);
+                    $('#etitle').empty().append(data.msg[0].name); 
                 }  
                 }); 
         </script>
         <script type="text/javascript">
             $('#loadandsave').click(function(e) {
-            	var p_html = $('#editor').html();
-            	var send_data = "{\"content\":\"2\\\"\\\"22\"}";
+            	var c_html = $('#editor').html();
+            	var n_html = $('#etitle').html();
+            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"name\":\""+n_html.replace(/\"/g,"\\\"")+"\"}";
             	 $.ajax({  
                      data:send_data,  
                      type:"POST",  
                      dataType: 'json', 
                      contentType : 'application/json;charset=UTF-8',
-                     url:"<%=basePath%>author/12345678/resources/blog/111111",  
+                     url:"<%=basePath%>author/${author}/resources/blog/${blog}",  
                      error:function(data){  
-                        alert("出错了！！:"+data.msg);  
+                        alert("更新文章内容失败！"+data.msg);  
                      },  
                      success:function(data){  
-                    	alert("成功了！！:"+data.msg);
+                    	 history.go(0);
                      }  
                      }); 
             });

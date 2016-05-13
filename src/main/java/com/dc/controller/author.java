@@ -64,7 +64,7 @@ public class author {
          
         ModelAndView view = new ModelAndView("blogedit");
         view.addObject("author", id);
-        view.addObject("blog", id); 
+        view.addObject("blog", blogid); 
         return view; 
     } 
 	
@@ -76,7 +76,9 @@ public class author {
 	public Map<String,Integer> updateBlog(@Valid @RequestBody Blog blog) throws IOException{
 		Map<String,Integer> map = new HashMap<String,Integer>(1);
 		System.out.println("--------------");
+		System.out.println(blog.getName());
 		System.out.println(blog.getContent());
+		
         map.put("msg", 0);
         return map;  
 	}

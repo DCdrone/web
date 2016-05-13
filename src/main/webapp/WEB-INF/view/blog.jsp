@@ -123,7 +123,7 @@
                                             
                                             <div class="post-item">
                                                 <div class="post-title">
-                                                    <a href="<%=basePath%>author/${author}/blog/1234">实例文字</a>
+                                                    <a href="<%=basePath%>author/${author}/blog/111111">实例文字</a>
                                                 </div>
                                                 <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / <a href="pages-blog-post.html#comments">3 Comments</a> / <a href="pages-profile.html">by Dmitry Ivaniuk</a></div>
                                                 <div class="post-text">
