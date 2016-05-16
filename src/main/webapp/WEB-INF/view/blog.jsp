@@ -103,23 +103,29 @@
                 </ul>
                 <!-- END BREADCRUMB -->
                 
-                <!-- PAGE TITLE -->
-                <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Posts</h2>
-                </div>
-                <!-- END PAGE TITLE -->                
+                           
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                     
                     <div class="row">
                         <div class="col-md-9">
+                        
+                           
+                            <ul class="pagination pagination-sm pull-right push-down-20">
+                                <li class="disabled"><a href="#">«</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>                                    
+                                <li><a href="#">»</a></li>
+                            </ul>   
                             
                             <div class="panel panel-default">
                                 <div class="panel-body posts">
                                     
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <%-- <div class="col-md-12">
                                             
                                             <div class="post-item">
                                                 <div class="post-title">
@@ -138,19 +144,11 @@
                                                 </div>
                                             </div>                                            
                                             
-                                        </div>
+                                        </div> --%>
                                     </div>         
                                 </div>
                             </div>
-                            
-                            <ul class="pagination pagination-sm pull-right push-down-20">
-                                <li class="disabled"><a href="#">«</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>                                    
-                                <li><a href="#">»</a></li>
-                            </ul>                            
+                                                  
                             
                         </div>   
                         <div class="col-md-3">

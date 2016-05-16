@@ -83,7 +83,7 @@ public class author {
 		//System.out.println("--------------"+blogid);
 		//System.out.println(blog.getName());
 		//System.out.println(blog.getContent());
-		blogService.updateByBlogId(blogid, blog.getName(), blog.getContent());
+		blogService.updateByBlogId(blogid, blog.getName(), blog.getSummary(), blog.getContent());
         map.put("msg", 0);
         return map;  
 	}

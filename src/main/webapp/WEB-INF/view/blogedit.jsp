@@ -125,7 +125,7 @@
                                             <div id="etitle" contenteditable=true>                                         
                                             </div>                                                                                                                                                
                                         </div>
-                                        <div class="post-date"><span class="fa fa-calendar" id="update-date">Nihao</span></div>
+                                        <div class="post-date"><span class="fa fa-calendar" id="update-date"></span></div>
                           
                    
 					<div id='editControls' class='panel panel-default' >
@@ -210,10 +210,18 @@
                                           
                         </div>   
                         <div class="col-md-3">
+                        
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h3>摘要</h3>
+                                    <div id="summary" contenteditable=true>                                     
+                                    </div>
+                                </div>
+                            </div>
                             
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <h3>文章的分类</h3>
+                                    <h3>分类</h3>
                                     <div class="links">
                                         <a href="#">云计算 <span class="label label-default">195</span></a>
                                         <a href="#">大数据 <span class="label label-default">278</span></a>
@@ -289,11 +297,11 @@
                    alert("出错了！！:"+data.msg);  
                 },  
                 success:function(data){  
-                	console.log(data.msg[0]);
                     $('#editor').empty().append(data.msg[0].content);
                     $('#etitle').empty().append(data.msg[0].name);
                     $('#update-date').empty().append("   "+(data.msg[0].updated_time.year+1990)+"年"+(data.msg[0].updated_time.month+1)+"月"+
                     	data.msg[0].updated_time.date+"日  "+data.msg[0].updated_time.hours+"时"+data.msg[0].updated_time.minutes+"分"); 
+                    $('#summary').empty().append(data.msg[0].summary);
                 }  
                 }); 
         </script>
@@ -301,7 +309,8 @@
             $('#loadandsave').click(function(e) {
             	var c_html = $('#editor').html();
             	var n_html = $('#etitle').html();
-            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"name\":\""+n_html.replace(/\"/g,"\\\"")+"\"}";
+            	var s_html = $('#summary').html();
+            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"name\":\""+n_html.replace(/\"/g,"\\\"")+"\",\"summary\":\""+s_html.replace(/\"/g,"\\\"")+"\"}";
             	 $.ajax({  
                      data:send_data,  
                      type:"POST",  
@@ -318,11 +327,6 @@
             });
         	
         </script>
-    
-    
-    
-    
-    
         
     </body>
 </html>

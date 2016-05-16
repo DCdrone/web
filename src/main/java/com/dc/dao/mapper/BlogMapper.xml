@@ -31,6 +31,9 @@
 			<if test="name != null and name != ''">
 				name = #{name,jdbcType=VARCHAR},
 			</if>
+			<if test="name != null ">
+				summary = #{summary,jdbcType=VARCHAR},
+			</if>
 			<if test="content != null">
 				content = #{content,jdbcType=VARCHAR},
 			</if>
