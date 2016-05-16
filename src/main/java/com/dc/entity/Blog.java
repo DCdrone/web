@@ -46,31 +46,31 @@ public class Blog {
       	 this.summary = summary;
        }
        
-       public String getSummary() {
+    public String getSummary() {
       	 return summary;
        }
     
-    private void setUser_id(Integer user_id) {
+    public void setUser_id(Integer user_id) {
     	this.user_id = user_id;
     }
     
-    private Integer getUser_id() {
+    public Integer getUser_id() {
     	return user_id;
     }
     
-    private void setTag(String tag) {
+    public void setTag(String tag) {
     	this.tag = tag;
     }
     
-    private String getTag() {
+    public String getTag() {
     	return tag;
     }
     
-    private void setBlog_id(Integer blog_id) {
+    public void setBlog_id(Integer blog_id) {
     	this.blog_id = blog_id;
     }
     
-    private Integer getBlog_id() {
+    public Integer getBlog_id() {
     	return blog_id;
     }
     
@@ -90,7 +90,7 @@ public class Blog {
    	 return updated_time;
     }
     
-    public void setContext(String content) {
+    public void setContent(String content) {
    	 this.content = content;
     }
     

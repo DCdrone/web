@@ -21,4 +21,21 @@
 		blog a
 		where a.blog_id =#{blog_id,jdbcType=INTEGER}
 	</select>
+	
+	<update id="updateByBlogId" parameterType="com.dc.entity.Blog" >
+		update blog 
+		<set>
+			<if test="updated_time != null">
+				updated_time = #{updated_time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="name != null and name != ''">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				content = #{content,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where blog_id = #{blog_id,jdbcType=INTEGER}
+	</update>
+	
 </mapper>

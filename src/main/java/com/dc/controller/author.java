@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
+import javax.annotation.Resource;
 
 import java.util.HashMap;  
 import java.util.Map;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.dc.entity.*;
+import com.dc.service.BlogService;
 
 
 /**
@@ -35,6 +37,9 @@ import com.dc.entity.*;
 @Controller
 @RequestMapping("/author")
 public class author {
+	
+	@Resource
+	BlogService blogService;
 	
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,
@@ -73,12 +78,12 @@ public class author {
 	//由于处在author目录下，这些访问都受到保护
 	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
 	@ResponseBody
-	public Map<String,Integer> updateBlog(@Valid @RequestBody Blog blog) throws IOException{
+	public Map<String,Integer> updateBlog(@PathVariable String authorid, @PathVariable Integer blogid,@Valid @RequestBody Blog blog) throws IOException{
 		Map<String,Integer> map = new HashMap<String,Integer>(1);
-		System.out.println("--------------");
-		System.out.println(blog.getName());
-		System.out.println(blog.getContent());
-		
+		//System.out.println("--------------"+blogid);
+		//System.out.println(blog.getName());
+		//System.out.println(blog.getContent());
+		blogService.updateByBlogId(blogid, blog.getName(), blog.getContent());
         map.put("msg", 0);
         return map;  
 	}

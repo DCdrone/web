@@ -125,7 +125,7 @@
                                             <div id="etitle" contenteditable=true>                                         
                                             </div>                                                                                                                                                
                                         </div>
-                                        <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / by Chen Chen</div>
+                                        <div class="post-date"><span class="fa fa-calendar" id="update-date">Nihao</span></div>
                           
                    
 					<div id='editControls' class='panel panel-default' >
@@ -289,8 +289,11 @@
                    alert("出错了！！:"+data.msg);  
                 },  
                 success:function(data){  
+                	console.log(data.msg[0]);
                     $('#editor').empty().append(data.msg[0].content);
-                    $('#etitle').empty().append(data.msg[0].name); 
+                    $('#etitle').empty().append(data.msg[0].name);
+                    $('#update-date').empty().append("   "+(data.msg[0].updated_time.year+1990)+"年"+(data.msg[0].updated_time.month+1)+"月"+
+                    	data.msg[0].updated_time.date+"日  "+data.msg[0].updated_time.hours+"时"+data.msg[0].updated_time.minutes+"分"); 
                 }  
                 }); 
         </script>
