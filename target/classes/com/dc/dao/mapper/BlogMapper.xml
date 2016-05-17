@@ -12,6 +12,7 @@
 		<result column="created_time" property="created_time" jdbcType="TIMESTAMP" />
 		<result column="updated_time" property="updated_time" jdbcType="TIMESTAMP" />
 		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="user_name" property="user_name" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<select id="getByBlogId" resultMap="blog">
@@ -40,5 +41,31 @@
 		</set>
 		where blog_id = #{blog_id,jdbcType=INTEGER}
 	</update>
+	
+	<select id="selectAll" resultMap="blog" parameterType="com.dc.entity.Blog">
+		select
+		a.name, a.user_id, a.blog_id, a.summary, a.tag, a.updated_time,
+		b.name as user_name
+		from
+		blog a left join author b on
+		a.user_id=b.user_id
+		where a.deleted=0
+		<if test="name != null and name !=''">
+			AND a.name LIKE '%${name}%'
+		</if>
+
+		<if test="summary != null and summary !=''">
+			AND a.summary LIKE '%${summary}%'
+		</if>
+
+		<if test="content != null and content !=''">
+			AND b.content LIKE '%${content}%'
+		</if>
+		
+		<if test="user_id != null">
+			AND a.user_id = #{user_id, jdbcType=INTEGER}
+		</if>
+		order by a.updated_time
+	</select>
 	
 </mapper>

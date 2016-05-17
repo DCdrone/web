@@ -13,6 +13,7 @@ public class Blog {
     private Date updated_time;
     private String content;   
     private String summary;
+    private String user_name;
     
     public Blog() {
     	
@@ -98,5 +99,12 @@ public class Blog {
    	 return content;
     }
    
+    public void setUser_name(String user_name) {
+      	 this.user_name = user_name;
+       }
+       
+    public String getUser_name() {
+      	 return user_name;
+    }
     
 }

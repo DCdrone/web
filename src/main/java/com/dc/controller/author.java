@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
+import com.dc.util.*;
 
 import java.util.HashMap;  
 import java.util.Map;
@@ -59,7 +60,11 @@ public class author {
 	@RequestMapping(value = "/{id}/blog")
 	public ModelAndView blogList(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          
-        ModelAndView view = new ModelAndView("blog");
+        Blog blog = new Blog();
+        blog.setUser_id(Integer.parseInt(id));
+		GridBean gridBean = blogService.list(1, 10, blog);
+		//System.out.println(gridBean.getRows());
+		ModelAndView view = new ModelAndView("blog");
         view.addObject("author", id);     
         return view;  
     } 
