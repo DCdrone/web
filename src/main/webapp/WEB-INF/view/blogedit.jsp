@@ -298,7 +298,7 @@
                 },  
                 success:function(data){  
                     $('#editor').empty().append(data.msg[0].content);
-                    $('#etitle').empty().append(data.msg[0].name);
+                    $('#etitle').empty().append(data.msg[0].title);
                     $('#update-date').empty().append("   "+(data.msg[0].updated_time.year+1990)+"年"+(data.msg[0].updated_time.month+1)+"月"+
                     	data.msg[0].updated_time.date+"日  "+data.msg[0].updated_time.hours+"时"+data.msg[0].updated_time.minutes+"分"); 
                     $('#summary').empty().append(data.msg[0].summary);
@@ -310,7 +310,7 @@
             	var c_html = $('#editor').html();
             	var n_html = $('#etitle').html();
             	var s_html = $('#summary').html();
-            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"name\":\""+n_html.replace(/\"/g,"\\\"")+"\",\"summary\":\""+s_html.replace(/\"/g,"\\\"")+"\"}";
+            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"title\":\""+n_html.replace(/\"/g,"\\\"")+"\",\"summary\":\""+s_html.replace(/\"/g,"\\\"")+"\"}";
             	 $.ajax({  
                      data:send_data,  
                      type:"POST",  

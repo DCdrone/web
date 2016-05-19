@@ -5,7 +5,8 @@ public class Blog {
 
     private Integer id;
     private Integer deleted;
-	private String name;
+	//private String name;
+	private String title;
 	private Integer user_id;
 	private Integer blog_id;
 	private String tag;
@@ -35,13 +36,21 @@ public class Blog {
     	return deleted;
     }
     
-    public void setName(String name) {
+  /*  public void setName(String name) {
    	 this.name = name;
     }
     
     public String getName() {
    	 return name;
-    }
+    }*/
+    
+    public void setTitle(String title) {
+      	 this.title = title;
+       }
+       
+       public String getTitle() {
+      	 return title;
+       }
     
     public void setSummary(String summary) {
       	 this.summary = summary;

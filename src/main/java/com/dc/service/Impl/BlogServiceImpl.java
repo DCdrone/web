@@ -25,11 +25,11 @@ public class BlogServiceImpl implements BlogService {
 		return this.blogMapper.getByBlogId(id);
 	}
 	
-	public Boolean updateByBlogId(Integer blog_id, String name, String summary, String content) {
+	public Boolean updateByBlogId(Integer blog_id, String title, String summary, String content) {
         Date updated_time = new Date();
         Blog blog = new Blog();
         blog.setContent(content);
-        blog.setName(name);
+        blog.setTitle(title);
         blog.setBlog_id(blog_id);
         blog.setUpdated_time(updated_time);
         blog.setSummary(summary);

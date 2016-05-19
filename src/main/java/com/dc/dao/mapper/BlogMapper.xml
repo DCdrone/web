@@ -4,7 +4,7 @@
 	<resultMap id="blog" type="com.dc.entity.Blog">
 	    <result column="id" property="id" jdbcType="INTEGER" />
 	    <result column="deleted" property="deleted" jdbcType="INTEGER" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
 		<result column="user_id" property="user_id" jdbcType="INTEGER" />
 		<result column="blog_id" property="blog_id" jdbcType="INTEGER" />
 		<result column="summary" property="summary" jdbcType="VARCHAR" />
@@ -29,10 +29,10 @@
 			<if test="updated_time != null">
 				updated_time = #{updated_time,jdbcType=TIMESTAMP},
 			</if>
-			<if test="name != null and name != ''">
-				name = #{name,jdbcType=VARCHAR},
+			<if test="title != null and title != ''">
+				title = #{title,jdbcType=VARCHAR},
 			</if>
-			<if test="name != null ">
+			<if test="summary != null ">
 				summary = #{summary,jdbcType=VARCHAR},
 			</if>
 			<if test="content != null">
@@ -44,14 +44,14 @@
 	
 	<select id="selectAll" resultMap="blog" parameterType="com.dc.entity.Blog">
 		select
-		a.name, a.user_id, a.blog_id, a.summary, a.tag, a.updated_time,
+		a.title, a.user_id, a.blog_id, a.summary, a.tag, a.updated_time,
 		b.name as user_name
 		from
 		blog a left join author b on
 		a.user_id=b.user_id
 		where a.deleted=0
-		<if test="name != null and name !=''">
-			AND a.name LIKE '%${name}%'
+		<if test="title != null and title !=''">
+			AND a.title LIKE '%${title}%'
 		</if>
 
 		<if test="summary != null and summary !=''">

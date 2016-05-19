@@ -16,6 +16,11 @@
         
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="<%=basePath%>css/theme-default.css"/>
+                <!-- START PLUGINS -->
+        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <!-- END PLUGINS -->
        
         <!-- EOF CSS INCLUDE -->                                    
     </head>
@@ -111,6 +116,47 @@
                     <div class="row">
                         <div class="col-md-9">
                         
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#newBlog">新建文章</button>
+                                <div class="modal fade" id="newBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">×</button>
+                                                <h4 class="modal-title" id="myModalLabel">请输入文章必要信息</h4>
+                                            </div>
+                                            
+                                            <form action="resources/blog" method="post" class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                    <label for="title" class="col-sm-2 control-label">博客名称</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="title" placeholder="请输入用户名">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="summary" class="col-sm-2 control-label">博客摘要</label>
+                                                    <div class="col-sm-8">
+                                                         <input type="text" class="form-control" name="summary" placeholder="请输入密码">
+                                                    </div>
+                                                </div>                                
+                        
+                                                <button type="button" class="btn btn-default col-sm-offset-2" data-dismiss="modal">关闭</button>
+                                                <input type="submit" value="创建" class="btn btn-primary">        
+                                            </form>
+                                            
+                                            <div class="modal-footer">
+
+                                            </div>
+                                       </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                 </div><!-- /.modal -->
+                                 <script>
+                                  $(function () { $('newBlog').modal({
+                                     keyboard: true
+                                  })});
+                                 </script>
+
+                            </div>
                            
                             <ul class="pagination pagination-sm pull-right push-down-20">
                                 <li class="disabled"><a href="#">«</a></li>
@@ -215,11 +261,7 @@
         <audio id="audio-fail" src="<%=basePath%>audio/fail.mp3" preload="auto"></audio>
         <!-- END PRELOADS -->                  
         
-        <!-- START PLUGINS -->
-        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>        
-        <!-- END PLUGINS -->
+
     
         
         <script type="text/javascript" src="<%=basePath%>js/plugins.js"></script>    

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.annotation.Resource;
+
 import com.dc.util.*;
 
 import java.util.HashMap;  
@@ -79,6 +81,20 @@ public class author {
     } 
 	
 	
+	@RequestMapping(value = "/{authorid}/resources/blog", method = { RequestMethod.POST })
+	public ModelAndView blogCreate(@PathVariable String authorid, HttpServletRequest request, HttpServletResponse response) {
+		String title = request.getParameter("title");
+	    String summary = request.getParameter("summary");
+	    
+	    System.out.println("-----------------------");
+	    System.out.println(title);
+	    System.out.println(summary);
+	 
+	    
+		ModelAndView view = new ModelAndView("redirect:/author/"+authorid+"/blog/111111");
+		return view;
+	}
+	
 	//以下的资源是restful的接口，他们不返回视图，用于ajax调用，进行相应的资源更新。
 	//由于处在author目录下，这些访问都受到保护
 	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
@@ -88,7 +104,7 @@ public class author {
 		//System.out.println("--------------"+blogid);
 		//System.out.println(blog.getName());
 		//System.out.println(blog.getContent());
-		blogService.updateByBlogId(blogid, blog.getName(), blog.getSummary(), blog.getContent());
+		blogService.updateByBlogId(blogid, blog.getTitle(), blog.getSummary(), blog.getContent());
         map.put("msg", 0);
         return map;  
 	}
