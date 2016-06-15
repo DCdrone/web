@@ -68,4 +68,41 @@
 		order by a.updated_time
 	</select>
 	
+	<insert id="createBlog" parameterType="com.dc.entity.author">
+		<!-- <selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey> -->
+		insert into blog
+		<set>
+			<if test="deleted!=null">
+				deleted=#{deleted,jdbcType=INTEGER},
+			</if>
+		    <if test="title!=null and title!='' ">
+				title=#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="user_id!=null">
+				user_id=#{user_id,jdbcType=INTEGER},
+			</if>
+			<if test="blog_id!=null">
+				blog_id=#{blog_id,jdbcType=INTEGER},
+			</if>
+			<if test="summary!=null and summary!='' ">
+				summary=#{summary,jdbcType=VARCHAR},
+			</if>
+			<if test="tag!=null and tag!='' ">
+				tag=#{tag,jdbcType=VARCHAR},
+			</if>
+			<if test="created_time!=null">
+				created_time=#{created_time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updated_time!=null">
+				updated_time=#{updated_time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="content!=null and content!='' ">
+				content=#{content,jdbcType=VARCHAR},
+			</if>
+		</set>
+	</insert>
+	
 </mapper>

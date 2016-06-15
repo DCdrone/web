@@ -17,4 +17,12 @@
 		author a
 		where a.name =#{name, jdbcType=VARCHAR}
 	</select>
+	<select id="getByUser_id" resultMap="author">
+		select
+		a.id, a.deleted, a.name, a.user_id, a.password, a.created_time
+		from
+		author a
+		where a.user_id =#{user_id, jdbcType=INTEGER}
+	</select>
+	
 </mapper>

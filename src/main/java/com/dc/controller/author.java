@@ -86,13 +86,18 @@ public class author {
 		String title = request.getParameter("title");
 	    String summary = request.getParameter("summary");
 	    
-	    System.out.println("-----------------------");
+	    /*System.out.println("-----------------------");
 	    System.out.println(title);
-	    System.out.println(summary);
-	 
-	    
-		ModelAndView view = new ModelAndView("redirect:/author/"+authorid+"/blog/111111");
-		return view;
+	    System.out.println(summary);*/
+	    int blog_id = this.blogService.createBlog(Integer.parseInt(authorid), title, summary);
+	    if ( blog_id != 0) {
+		    ModelAndView view = new ModelAndView("redirect:/author/"+authorid+"/blog/"+blog_id);
+		    return view;
+	    }
+	    else {
+	    	ModelAndView view = new ModelAndView("redirect:/author/"+authorid+"/blog");
+	    	return view;
+	    }	
 	}
 	
 	//以下的资源是restful的接口，他们不返回视图，用于ajax调用，进行相应的资源更新。

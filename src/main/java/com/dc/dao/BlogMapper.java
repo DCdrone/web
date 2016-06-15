@@ -9,4 +9,5 @@ public interface BlogMapper {
 	public Blog getByBlogId(Integer blog_id);
 	public Boolean updateByBlogId(Blog blog);
 	public List<Blog> selectAll(Blog blog);
+	public Boolean createBlog(Blog blog);
 }
