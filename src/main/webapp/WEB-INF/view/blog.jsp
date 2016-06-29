@@ -19,7 +19,8 @@
                 <!-- START PLUGINS -->
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>  
+        <script src="<%=basePath%>js/init.js"></script>      
         <!-- END PLUGINS -->
        
         <!-- EOF CSS INCLUDE -->                                    
@@ -159,12 +160,12 @@
                             </div>
                            
                             <ul class="pagination pagination-sm pull-right push-down-20">
-                                <li class="disabled"><a href="#">«</a></li>
+                                <!-- <li class="disabled"><a href="#">«</a></li>
                                 <li class="active"><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
                                 <li><a href="#">4</a></li>                                    
-                                <li><a href="#">»</a></li>
+                                <li><a href="#">»</a></li> -->
                             </ul>   
                             
                             <div class="panel panel-default">
@@ -267,7 +268,39 @@
         <script type="text/javascript" src="<%=basePath%>js/plugins.js"></script>    
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script> 
         
-    <!-- END SCRIPTS -->         
+    <!-- END SCRIPTS -->     
+        <script type="text/javascript">
+            $('.blogList').click(function(e) {
+            	var c_html = $('#editor').html();
+            	var n_html = $('#etitle').html();
+            	var s_html = $('#summary').html();
+            	var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"title\":\""+n_html.replace(/\"/g,"\\\"")+"\",\"summary\":\""+s_html.replace(/\"/g,"\\\"")+"\"}";
+            	 $.ajax({  
+                     data:send_data,  
+                     type:"POST",  
+                     dataType: 'json', 
+                     contentType : 'application/json;charset=UTF-8',
+                     url:"<%=basePath%>author/${author}/resources/blog/${blog}",  
+                     error:function(data){  
+                        alert("更新文章内容失败！"+data.msg);  
+                     },  
+                     success:function(data){  
+                         $('#editor').empty().append(data.msg[0].content);
+                         $('#etitle').empty().append(data.msg[0].title);
+                         $('#update-date').empty().append("   "+(data.msg[0].updated_time.year+1990)+"年"+(data.msg[0].updated_time.month+1)+"月"+
+                         	data.msg[0].updated_time.date+"日  "+data.msg[0].updated_time.hours+"时"+data.msg[0].updated_time.minutes+"分"); 
+                         $('#summary').empty().append(data.msg[0].summary);
+                     }  
+                     }); 
+            });
+        	
+        </script>  
+        <script type="text/javascript">
+	        jQuery(function($) {
+			    _dc_common.initPages('<%=basePath%>','${blogList}');
+			    console.log('${blogList}');
+		    }); 
+        </script>  
     </body>
 </html>
 

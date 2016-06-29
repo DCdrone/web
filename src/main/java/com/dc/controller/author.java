@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,7 +55,7 @@ public class author {
 	
 	@RequestMapping(value = "/{id}")
 	public ModelAndView dashboard(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
-         
+		System.out.println("XXXXXXTTTXXXXXXX\n");
         ModelAndView view = new ModelAndView("author");
         view.addObject("author", id);     
         return view;  
@@ -61,15 +63,31 @@ public class author {
 	
 	@RequestMapping(value = "/{id}/blog")
 	public ModelAndView blogList(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
-         
+		System.out.println("------TTT------\n");
         Blog blog = new Blog();
         blog.setUser_id(Integer.parseInt(id));
+       
 		GridBean gridBean = blogService.list(1, 10, blog);
-		//System.out.println(gridBean.getRows());
+		System.out.println("---------------");
+		System.out.println(gridBean.getRows());
 		ModelAndView view = new ModelAndView("blog");
-        view.addObject("author", id);     
+        view.addObject("author", id);   
+        view.addObject("blogList", JSONArray.fromObject(gridBean)); 
         return view;  
     } 
+	
+	@RequestMapping(value = "/{id}/resources/blog")
+	@ResponseBody
+	public Map<String,JSONArray> listBlog(@PathVariable String authorid, @Valid @RequestBody BlogList blogList) throws IOException{
+		Map<String,JSONArray> map = new HashMap<String,JSONArray>(1);
+		blogList.getBlog().setUser_id(Integer.parseInt(authorid));
+		GridBean gridBean = blogService.list(blogList.getPageNum(), 10, blogList.getBlog());
+		//System.out.println("--------------"+blogid);
+		//System.out.println(blog.getName());
+		//System.out.println(blog.getContent());
+        map.put("gridBean", JSONArray.fromObject(gridBean));
+        return map;  
+	}
 	
 	@RequestMapping(value = "/{id}/blog/{blogid}")
 	public ModelAndView blogEdit(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
@@ -100,8 +118,7 @@ public class author {
 	    }	
 	}
 	
-	//以下的资源是restful的接口，他们不返回视图，用于ajax调用，进行相应的资源更新。
-	//由于处在author目录下，这些访问都受到保护
+	
 	@RequestMapping(value = "/{authorid}/resources/blog/{blogid}", method = { RequestMethod.POST })
 	@ResponseBody
 	public Map<String,Integer> updateBlog(@PathVariable String authorid, @PathVariable Integer blogid,@Valid @RequestBody Blog blog) throws IOException{
