@@ -79,15 +79,14 @@ public class author {
 	@RequestMapping(value = "/{authorid}/resources/bloglist", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public Map<String,Object> listBlog(@PathVariable String authorid,@Valid @RequestBody BlogSearch blogSearch) throws IOException{
-		System.out.println("-------------------");
 		Map<String,Object> map = new HashMap<String,Object>(1);
 		Blog blog = new Blog(Integer.parseInt(authorid));
 		blogSearch.getBlog().setUser_id(Integer.parseInt(authorid));
 		GridBean gridBean = blogService.list(blogSearch.getPageNum(), 10, blog);
 		
-		System.out.println(blog.getUser_id());
-		System.out.println(blogSearch.getPageNum());
-		System.out.println(JSONArray.fromObject(gridBean));
+		//System.out.println(blog.getUser_id());
+		//System.out.println(blogSearch.getPageNum());
+		//System.out.println(JSONArray.fromObject(gridBean));
         //map.put("msg", JSONArray.fromObject(gridBean));
 		map.put("msg", gridBean);
         return map;  

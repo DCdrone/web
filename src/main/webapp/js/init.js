@@ -7,7 +7,7 @@ var _dc_common = {
 		this.createMenu(topNews);
 	},
 	createMenu: function(topNews){
-		content = '';
+		var content = '';
 		$_s = this;
 		$.each(topNews,function(i,obj){
 			content += "<div class=\"col-xs-6 col-sm-4 col-lg-4\"><div class=\"panel panel-default\" style=\"height:250px\"><div class=\"panel-body\" style=\"display:none\">";
@@ -19,11 +19,9 @@ var _dc_common = {
 		$('.container').find('.row').find('.panel-body').fadeIn(1500);
 	},
 	getBlogList: function(basePath, author, pageNum) {
-    	  //var send_data = "{\"blog\":\"{\"content\":\"\",\"summary\":\"\",\"title\":\"\"}\",\"pageNum\":\""+pageNum+"\"}";
 		 var send_data = "{\"blog\":{},\"pageNum\":\""+pageNum+"\"}";
-		 //var send_data = "{\"author\":\""+author+"\",\"pageNum\":\""+pageNum+"\"}";
+		 var content = '';
     	 $.ajax({  
-             //data:send_data,
     		 data:send_data,
              type:"POST",  
              dataType: 'json', 
@@ -34,6 +32,14 @@ var _dc_common = {
              },  
              success:function(data){  
                  console.log(data.msg);
+                 $.each(data.msg.rows, function(i, obj) {
+                	 content += "<div class=\"col-md-12\"><div class=\"post-item\"><div class=\"post-title\"> <a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">"+obj.title+"</a></div>"+
+                	 "<div class=\"post-date\"><span class=\"fa fa-calendar\"></span> October 23, 2014 / by Dmitry Ivaniuk</a></div>"+
+                	 "<div class=\"post-text\"><img src=\"\" class=\"img-responsive img-text\"/><p>"+obj.summary+"</p></div>"+
+                	 "<div class=\"post-row\"><div class=\"post-info\"><span class=\"fa fa-thumbs-up\"></span> 15 - <span class=\"fa fa-eye\"></span> 15,332 - <span class=\"fa fa-star\"></span>"+
+                	 "</div><button class=\"btn btn-default btn-rounded pull-right\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">Read more</a></button></div></div></div>";
+                 });
+                 $('.blogList').empty().append(content);
              }  
              }); 
 	},

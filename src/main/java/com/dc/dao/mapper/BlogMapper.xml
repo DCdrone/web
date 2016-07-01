@@ -65,7 +65,7 @@
 		<if test="user_id != null">
 			AND a.user_id = #{user_id, jdbcType=INTEGER}
 		</if>
-		order by a.updated_time
+		order by a.updated_time DESC
 	</select>
 	
 	<insert id="createBlog" parameterType="com.dc.entity.author">
