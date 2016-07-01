@@ -26,7 +26,8 @@ import java.io.IOException;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.dc.entity.*;
+import com.dc.entity.Blog;
+import com.dc.entity.BlogSearch;
 import com.dc.service.BlogService;
 
 
@@ -53,42 +54,45 @@ public class author {
 		return view;
 	}
 	
-	@RequestMapping(value = "/{id}")
-	public ModelAndView dashboard(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
-		System.out.println("XXXXXXTTTXXXXXXX\n");
+	@RequestMapping(value = "/{authorid}")
+	public ModelAndView dashboard(@PathVariable String authorid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
         ModelAndView view = new ModelAndView("author");
-        view.addObject("author", id);     
+        view.addObject("author", authorid);     
         return view;  
     }  
 	
-	@RequestMapping(value = "/{id}/blog")
-	public ModelAndView blogList(@PathVariable String id, HttpServletRequest request,HttpServletResponse response) throws IOException{  
-		System.out.println("------TTT------\n");
-        Blog blog = new Blog();
-        blog.setUser_id(Integer.parseInt(id));
+	@RequestMapping(value = "/{authorid}/blog")
+	public ModelAndView blogList(@PathVariable String authorid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+		//System.out.println("------TTT------\n");
+        //Blog blog = new Blog();
+        //blog.setUser_id(Integer.parseInt(id));
        
-		GridBean gridBean = blogService.list(1, 10, blog);
-		System.out.println("---------------");
-		System.out.println(gridBean.getRows());
+		//GridBean gridBean = blogService.list(1, 10, blog);
+		//System.out.println("---------------");
+		//System.out.println(gridBean.getRows());
 		ModelAndView view = new ModelAndView("blog");
-        view.addObject("author", id);   
-        view.addObject("blogList", JSONArray.fromObject(gridBean)); 
+        view.addObject("author", authorid);   
+        //view.addObject("blogList", JSONArray.fromObject(gridBean)); 
         return view;  
     } 
 	
-	@RequestMapping(value = "/{id}/resources/blog")
+	@RequestMapping(value = "/{authorid}/resources/bloglist", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
 	@ResponseBody
-	public Map<String,JSONArray> listBlog(@PathVariable String authorid, @Valid @RequestBody BlogList blogList) throws IOException{
-		Map<String,JSONArray> map = new HashMap<String,JSONArray>(1);
-		blogList.getBlog().setUser_id(Integer.parseInt(authorid));
-		GridBean gridBean = blogService.list(blogList.getPageNum(), 10, blogList.getBlog());
-		//System.out.println("--------------"+blogid);
-		//System.out.println(blog.getName());
-		//System.out.println(blog.getContent());
-        map.put("gridBean", JSONArray.fromObject(gridBean));
+	public Map<String,Object> listBlog(@PathVariable String authorid,@Valid @RequestBody BlogSearch blogSearch) throws IOException{
+		System.out.println("-------------------");
+		Map<String,Object> map = new HashMap<String,Object>(1);
+		Blog blog = new Blog(Integer.parseInt(authorid));
+		blogSearch.getBlog().setUser_id(Integer.parseInt(authorid));
+		GridBean gridBean = blogService.list(blogSearch.getPageNum(), 10, blog);
+		
+		System.out.println(blog.getUser_id());
+		System.out.println(blogSearch.getPageNum());
+		System.out.println(JSONArray.fromObject(gridBean));
+        //map.put("msg", JSONArray.fromObject(gridBean));
+		map.put("msg", gridBean);
         return map;  
 	}
-	
+
 	@RequestMapping(value = "/{id}/blog/{blogid}")
 	public ModelAndView blogEdit(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
          

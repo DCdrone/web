@@ -20,6 +20,10 @@ public class Blog {
     	
     }   
     
+    public Blog(int user_id) {
+    	this.user_id = user_id;
+    }  
+    
     public void setId(Integer id) {
     	this.id = id;
     }

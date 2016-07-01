@@ -171,7 +171,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body posts">
                                     
-                                    <div class="row">
+                                    <div class="row blogList">
                                         <%-- <div class="col-md-12">
                                             
                                             <div class="post-item">
@@ -270,7 +270,7 @@
         
     <!-- END SCRIPTS -->     
         <script type="text/javascript">
-            $('.blogList').click(function(e) {
+           <%--  $('.blogList').click(function(e) {
             	var c_html = $('#editor').html();
             	var n_html = $('#etitle').html();
             	var s_html = $('#summary').html();
@@ -292,13 +292,12 @@
                          $('#summary').empty().append(data.msg[0].summary);
                      }  
                      }); 
-            });
+            }); --%>
         	
         </script>  
         <script type="text/javascript">
 	        jQuery(function($) {
-			    _dc_common.initPages('<%=basePath%>','${blogList}');
-			    console.log('${blogList}');
+			    _dc_common.getBlogList('<%=basePath%>',"${author}", 1);
 		    }); 
         </script>  
     </body>
