@@ -101,6 +101,14 @@ public class author {
         return view; 
     } 
 	
+	@RequestMapping(value = "/{id}/resources/blog/{blogid}/delete")
+	public ModelAndView blogDelete(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
+		blogService.deleteByBlogId(Integer.parseInt(blogid));
+        ModelAndView view = new ModelAndView("blog");
+        view.addObject("author", id); 
+        return view; 
+    } 
+	
 	
 	@RequestMapping(value = "/{authorid}/resources/blog", method = { RequestMethod.POST })
 	public ModelAndView blogCreate(@PathVariable String authorid, HttpServletRequest request, HttpServletResponse response) {

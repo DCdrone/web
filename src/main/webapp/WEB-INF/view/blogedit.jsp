@@ -125,7 +125,30 @@
                                             <div id="etitle" contenteditable=true>                                         
                                             </div>                                                                                                                                                
                                         </div>
-                                        <div class="post-date"><span class="fa fa-calendar" id="update-date"></span></div>
+                                        <div class="post-date">
+                                            <span class="fa fa-calendar" id="update-date"></span>
+                                            <li class="xn-icon-button pull-right">
+                                                  <a href="#" class="mb-control" data-box="#mb-delete"><span class="glyphicon glyphicon-remove"></span></a>                        
+                                            </li> 
+                                            
+                                             <div class="message-box animated fadeIn" data-sound="alert" id="mb-delete">
+                                                 <div class="mb-container">
+                                                      <div class="mb-middle">
+                                                           <div class="mb-title"><span class="glyphicon glyphicon-remove"></span> 删 <strong>除</strong> ?</div>
+                                                           <div class="mb-content">
+                                                                  <p>您确定要删除吗？</p>     
+                                                           </div>
+                                                           <div class="mb-footer">
+                                                               <div class="pull-right">
+                                                                      <a href="<%=basePath%>author/${author}/resources/blog/${blog}/delete" class="btn btn-success btn-lg">Yes</a>
+                                                                      <button class="btn btn-default btn-lg mb-control-close">No</button>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                  </div>
+                                              </div>
+        
+                                        </div>
                           
                    
 					<div id='editControls' class='panel panel-default' >

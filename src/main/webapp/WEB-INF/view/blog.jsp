@@ -236,22 +236,10 @@
         <audio id="audio-alert" src="<%=basePath%>audio/alert.mp3" preload="auto"></audio>
         <audio id="audio-fail" src="<%=basePath%>audio/fail.mp3" preload="auto"></audio>
         <!-- END PRELOADS -->                  
-        
-
-    
-        
+     
         <script type="text/javascript" src="<%=basePath%>js/plugins.js"></script>    
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script> 
         
-    <!-- END SCRIPTS -->     
-       <%--  <script type="text/javascript">
-           $('.pageList').attr("onclick" {
-        	   alert();
-        	   var pageNum = $(this).val();
-        	   console.log(pageNum);
-        	   _dc_common.getBlogList('<%=basePath%>',"${author}", pageNum);
-        	   return true;
-           }); 
         	
         </script>   --%>
         <script type="text/javascript">

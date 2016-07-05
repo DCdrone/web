@@ -90,5 +90,17 @@ public class BlogServiceImpl implements BlogService {
 	 return r + min;
 	 }
 	 
+	 public boolean deleteByBlogId(int blog_id) {
+	        Blog blog = new Blog();
+	        //这个目前还比较危险，后续最好判断一下该文章是否只有一个，只有一个以后再删除
+	        blog.setBlog_id(blog_id);
+	        if (this.blogMapper.deleteBlog(blog)==true) {
+			     return true;
+			 }
+			 else {
+				 return false;
+			 }
+		}
+	 
 	 
 }
