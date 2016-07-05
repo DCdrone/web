@@ -172,26 +172,7 @@
                                 <div class="panel-body posts">
                                     
                                     <div class="row blogList">
-                                        <%-- <div class="col-md-12">
-                                            
-                                            <div class="post-item">
-                                                <div class="post-title">
-                                                    <a href="<%=basePath%>author/${author}/blog/111111">实例文字</a>
-                                                </div>
-                                                <div class="post-date"><span class="fa fa-calendar"></span> October 23, 2014 / <a href="pages-blog-post.html#comments">3 Comments</a> / <a href="pages-profile.html">by Dmitry Ivaniuk</a></div>
-                                                <div class="post-text">
-                                                    <img src="" class="img-responsive img-text"/>
-                                                    <p>很明显，这些内容是要根据数据库中的搜索结果动态填充的~这里应该显示文章的摘要，</p>                                            
-                                                </div>
-                                                <div class="post-row">
-                                                    <div class="post-info">
-                                                        <span class="fa fa-thumbs-up"></span> 15 - <span class="fa fa-eye"></span> 15,332 - <span class="fa fa-star"></span> 322
-                                                    </div>
-                                                    <button class="btn btn-default btn-rounded pull-right">Read more</button>
-                                                </div>
-                                            </div>                                            
-                                            
-                                        </div> --%>
+                                      
                                     </div>         
                                 </div>
                             </div>

@@ -33,11 +33,11 @@ var _dc_common = {
              success:function(data){  
                  console.log(data.msg);
                  $.each(data.msg.rows, function(i, obj) {
+                	 var timeString = new Date(parseInt(obj.updated_time) * 1).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " "); 
                 	 content += "<div class=\"col-md-12\"><div class=\"post-item\"><div class=\"post-title\"> <a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">"+obj.title+"</a></div>"+
-                	 "<div class=\"post-date\"><span class=\"fa fa-calendar\"></span> October 23, 2014 / by Dmitry Ivaniuk</a></div>"+
+                	 "<div class=\"post-date\"><span class=\"fa fa-calendar\"></span> "+timeString+" / by "+obj.user_name+"</a></div>"+
                 	 "<div class=\"post-text\"><img src=\"\" class=\"img-responsive img-text\"/><p>"+obj.summary+"</p></div>"+
-                	 "<div class=\"post-row\"><div class=\"post-info\"><span class=\"fa fa-thumbs-up\"></span> 15 - <span class=\"fa fa-eye\"></span> 15,332 - <span class=\"fa fa-star\"></span>"+
-                	 "</div><button class=\"btn btn-default btn-rounded pull-right\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">Read more</a></button></div></div></div>";
+                	 "<button class=\"btn btn-default btn-rounded pull-right\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">Read more</a></button></div></div></div>";
                  });
                  $('.blogList').empty().append(content);
              }  
