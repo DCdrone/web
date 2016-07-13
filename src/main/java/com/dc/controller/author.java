@@ -82,7 +82,7 @@ public class author {
 		Map<String,Object> map = new HashMap<String,Object>(1);
 		Blog blog = new Blog(Integer.parseInt(authorid));
 		blogSearch.getBlog().setUser_id(Integer.parseInt(authorid));
-		GridBean gridBean = blogService.list(blogSearch.getPageNum(), 10, blog);
+		GridBean gridBean = blogService.list(blogSearch.getPageNum(), 5, blog);
 		
 		//System.out.println(blog.getUser_id());
 		//System.out.println(blogSearch.getPageNum());

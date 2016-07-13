@@ -10,6 +10,7 @@
 	        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ "/web/";
       %>
       <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css" />
+      <link rel="stylesheet" href="<%=basePath%>css/dc-default-theme.css" />
       <%-- <link rel="stylesheet" href="<%=basePath%>css/bootstrap-combined.min.css" />
       <link rel="stylesheet" href="<%=basePath%>css/font-awesome.css" /> --%>
       <script src="<%=basePath%>js/jquery-1.12.2.min.js"></script>

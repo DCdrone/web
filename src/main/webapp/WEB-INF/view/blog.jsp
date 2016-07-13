@@ -30,7 +30,8 @@
         <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
-            <div class="page-sidebar" style="height: 963px;">
+            <!-- <div class="page-sidebar" style="height: 1080px;"> -->
+            <div class="page-sidebar" >
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
@@ -241,7 +242,7 @@
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script> 
         
         	
-        </script>   --%>
+        </script> 
         <script type="text/javascript">
 	        jQuery(function($) {
 			    _dc_common.getBlogList('<%=basePath%>',"${author}", 1);

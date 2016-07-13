@@ -10,13 +10,13 @@ var _dc_common = {
 		var content = '';
 		$_s = this;
 		$.each(topNews,function(i,obj){
-			content += "<div class=\"col-xs-6 col-sm-4 col-lg-4\"><div class=\"panel panel-default\" style=\"height:250px\"><div class=\"panel-body\" style=\"display:none\">";
+			content += "<div class=\"col-xs-12 col-sm-12 col-lg-12\"><div class=\"panel panel-default\" style=\"height:250px\"><div class=\"panel-body\" style=\"display:none\">";
 			//content += "<a href=\"#\"><img src=\"img/"+obj.picture+"\"><\/a>";
 			content += "<a href=\"#\"><\/a>";
 			content += "</div></div></div>\n";
 		});
-		$('.container').find('.row').empty().append(content);
-		$('.container').find('.row').find('.panel-body').fadeIn(1500);
+		$('.container').find('.articles').find('.blogSelected').empty().append(content);
+		$('.container').find('.articles').find('.blogSelected').fadeIn(1500);
 	},
 	getBlogList: function(basePath, author, pageNum) {
 		 var send_data = "{\"blog\":{},\"pageNum\":\""+pageNum+"\"}";
