@@ -4,14 +4,16 @@
 	<resultMap id="topnews" type="com.dc.entity.topnews">
 		<result column="id" property="id" jdbcType="BIGINT" />
 		<result column="title" property="title" jdbcType="VARCHAR" />
-		<result column="abstracts" property="abstracts" jdbcType="VARCHAR" />
-		<result column="context" property="context" jdbcType="VARCHAR" />
+		<result column="summary" property="summary" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
 		<result column="picture" property="picture" jdbcType="VARCHAR" />
+		<result column="blog_id" property="blog_id" jdbcType="INTEGER" />
+		<result column="updated_time" property="updated_time" jdbcType="TIMESTAMP" />
 	</resultMap>
 
 	<select id="getAll" resultMap="topnews">
 		select
-		a.id, a.title, a.abstracts, a.context, a.picture
+		a.id, a.title, a.summary, a.author, a.picture, a.blog_id, a.updated_time
 		from
 		topnews a
 		where 1 =1

@@ -10,13 +10,17 @@ var _dc_common = {
 		var content = '';
 		$_s = this;
 		$.each(topNews,function(i,obj){
-			content += "<div class=\"col-xs-12 col-sm-12 col-lg-12\"><div class=\"panel panel-default\" style=\"height:250px\"><div class=\"panel-body\" style=\"display:none\">";
-			//content += "<a href=\"#\"><img src=\"img/"+obj.picture+"\"><\/a>";
-			content += "<a href=\"#\"><\/a>";
-			content += "</div></div></div>\n";
+			content += "<div class=\"eachblogview col-xs-12 col-sm-12 col-lg-12\">";
+			content += "<h2>"+obj.title+"</h2>";
+			content += "<div class=\"eachblogview col-xs-3 col-sm-3 col-lg-3\"><a href=\"#\"><img src=\"img/"+obj.picture+"\"><\/a></div>";
+			content += "<div class=\"eachblogview col-xs-9 col-sm-9 col-lg-9\"><p>"+obj.summary+"</p></div>";
+			content += "<button type=\"button\" class=\"rightdown btn btn-warning\">阅读全文  >></button>";
+			var timeString = new Date(parseInt(obj.updated_time.time) * 1).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " "); 
+			content += "<div class=\"greyline\ col-xs-12 col-sm-12 col-lg-12\"><span>"+timeString+"<span>作者："+obj.author+"</span>"+"</span></div>";
+			content += "</div>";
 		});
-		$('.container').find('.articles').find('.blogSelected').empty().append(content);
-		$('.container').find('.articles').find('.blogSelected').fadeIn(1500);
+		$('.container').find('.articles').find('.blogselected').empty().append(content);
+		$('.container').find('.articles').find('.blogselected').fadeIn(1500);
 	},
 	getBlogList: function(basePath, author, pageNum) {
 		 var send_data = "{\"blog\":{},\"pageNum\":\""+pageNum+"\"}";

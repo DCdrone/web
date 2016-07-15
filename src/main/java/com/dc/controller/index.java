@@ -38,7 +38,6 @@ public class index {
 		List<topnews> news = this.topnewsService.getAllTopnews();
 		view.addObject("topNews", JSONArray.fromObject(news));
 		return view;
-
 	}
 }
 

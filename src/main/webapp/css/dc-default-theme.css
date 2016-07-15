@@ -1,5 +1,60 @@
 @charset "UTF-8";
 
 .articles{
-	margin-top:20px;
+	margin-top:0px;
+}
+
+h2.topline {
+	font: 18px "微软雅黑", Arial, Helvetica, sans-serif;
+    color: #444;
+    font-weight: bold;
+    background: url(../img/h_line.jpg) repeat-x 20px center;
+    margin-top: 0px;
+}
+
+h2.topline p {
+    background: #fff;
+    width: 90px;
+}
+
+.blogselected {
+    overflow: hidden;
+    background: url(../img/r_line.jpg) repeat-y right;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.eachblogview {
+    padding-left: 0px;
+    color: #838383;
+}
+
+#cattop {
+	height: 200px;
+	background: url(../img/miao.jpeg) no-repeat center;
+}
+
+.eachblogview h2{
+	font: 16px "微软雅黑", Arial, Helvetica, sans-serif;
+	color: #444;
+    font-weight: bold;
+    margin-top: 0px;
+}
+.rightdown {
+	float: right;
+	margin-right: 10px;
+}
+
+.greyline {
+	background: #f6f6f6 url(../img/time.jpg) 15px center no-repeat;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #838383;
+}
+
+.greyline span {
+	margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    margin-left: 20px;
 }

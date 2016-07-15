@@ -1,11 +1,14 @@
 package com.dc.entity;
+import java.util.Date;
 
 public class topnews {
      private Integer id;
      private String title;
-     private String abstracts;
-     private String context;
-     private String picture;     
+     private String summary;
+     private String author;
+     private String picture;
+     private int blog_id;
+     private Date updated_time;
      
      public void setId(Integer id) {
     	 this.id = id;
@@ -23,20 +26,20 @@ public class topnews {
     	 return title;
      }
      
-     public void setAbstracts(String abstracts) {
-    	 this.abstracts = abstracts;
+     public void setSummary(String summary) {
+    	 this.summary = summary;
      }
      
-     public String getAbstracts() {
-    	 return abstracts;
+     public String getSummary() {
+    	 return summary;
      }
      
-     public void setContext(String context) {
-    	 this.context = context;
+     public void setAuthor(String author) {
+    	 this.author = author;
      }
      
-     public String getContext() {
-    	 return context;
+     public String getAuthor() {
+    	 return author;
      }
      
      public void setPicture(String picture) {
@@ -47,5 +50,20 @@ public class topnews {
     	 return picture;
      }
      
+     public void setBlog_id(int blog_id) {
+    	 this.blog_id = blog_id;
+     }
+     
+     public int getBlog_id() {
+    	 return blog_id;
+     }
+     
+     public void setUpdated_time(Date updated_time) {
+    	 this.updated_time = updated_time;
+     }
+     
+     public Date getUpdated_time() {
+    	 return updated_time;
+     }
      
 }
