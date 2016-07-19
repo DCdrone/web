@@ -36,7 +36,9 @@ public class index {
 
 		ModelAndView view = new ModelAndView("index");
 		List<topnews> news = this.topnewsService.getAllTopnews();
+		List<Blog> blogs = this.topnewsService.getLatestBlogs();
 		view.addObject("topNews", JSONArray.fromObject(news));
+		view.addObject("latestBlogs", JSONArray.fromObject(blogs));
 		return view;
 	}
 }
