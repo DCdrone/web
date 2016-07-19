@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 import com.dc.util.*;
 
 import java.util.HashMap;  
+import java.util.List;
 import java.util.Map;
 
 
@@ -29,6 +30,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.dc.entity.Blog;
 import com.dc.entity.BlogSearch;
 import com.dc.service.BlogService;
+import com.dc.service.TopnewsService;
+import com.dc.entity.topnews;
 
 
 /**
@@ -46,6 +49,9 @@ public class author {
 	
 	@Resource
 	BlogService blogService;
+	
+	@Resource
+	TopnewsService topnewsService;
 	
 	@RequestMapping("/")
 	public ModelAndView mainPage(HttpServletRequest request,
@@ -83,12 +89,16 @@ public class author {
 		Blog blog = new Blog(Integer.parseInt(authorid));
 		blogSearch.getBlog().setUser_id(Integer.parseInt(authorid));
 		GridBean gridBean = blogService.list(blogSearch.getPageNum(), 5, blog);
-		
-		//System.out.println(blog.getUser_id());
-		//System.out.println(blogSearch.getPageNum());
-		//System.out.println(JSONArray.fromObject(gridBean));
-        //map.put("msg", JSONArray.fromObject(gridBean));
 		map.put("msg", gridBean);
+        return map;  
+	}
+	
+	@RequestMapping(value = "/{authorid}/resources/recommendedlist", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String,List<topnews>> listRecommended(@PathVariable String authorid) throws IOException{
+		Map<String,List<topnews>> map = new HashMap<String,List<topnews>>(1);
+		List<topnews> blogs = topnewsService.getAllTopnews();
+		map.put("msg", blogs);
         return map;  
 	}
 

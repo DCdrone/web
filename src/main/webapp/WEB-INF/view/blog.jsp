@@ -20,7 +20,7 @@
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="<%=basePath%>js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<%=basePath%>js/plugins/bootstrap/bootstrap.min.js"></script>  
-        <script src="<%=basePath%>js/init.js"></script>      
+        <script src="<%=basePath%>js/author_blog_init.js"></script>      
         <!-- END PLUGINS -->
        
         <!-- EOF CSS INCLUDE -->                                    
@@ -203,6 +203,19 @@
                                 </div>
                             </div>
                             
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h3>推荐文章列表</h3>
+                                    <div class="links" id="recommended">
+                                        <div class="col-md-12">
+               	                            <div class="col-md-6"><a href="#"></a></div>
+               	                            <div class="col-md-6"><input class="btn btn-default pull-right removerecommended" type="submit" value="删除">
+               	                            </div>
+               	                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                                                             
@@ -242,11 +255,13 @@
         <script type="text/javascript" src="<%=basePath%>js/actions.js"></script> 
         
         	
-        </script> 
         <script type="text/javascript">
 	        jQuery(function($) {
 			    _dc_common.getBlogList('<%=basePath%>',"${author}", 1);
-		    }); 
+			    _dc_common.getRecommended('<%=basePath%>',"${author}");
+			    _dc_common.addClick();
+			    
+		    }); 	        	        
         </script>  
     </body>
 </html>
