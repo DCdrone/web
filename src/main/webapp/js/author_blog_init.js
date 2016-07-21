@@ -21,6 +21,7 @@ var _dc_common = {
                 	 content += "<div class=\"col-md-12\"><div class=\"post-item\"><div class=\"post-title\"> <a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">"+obj.title+"</a></div>"+
                 	 "<div class=\"post-date\"><span class=\"fa fa-calendar\"></span> "+timeString+" / by "+obj.user_name+"</a></div>"+
                 	 "<div class=\"post-text\"><img src=\"\" class=\"img-responsive img-text\"/><p>"+obj.summary+"</p></div>"+
+                	 "<button class=\"btn btn-default btn-rounded pull-left settopnews\" value="+obj.blog_id+">置顶推荐</button>"+
                 	 "<button class=\"btn btn-default btn-rounded pull-right\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">Read more</a></button></div></div></div>";
                  });
                  $('.blogList').empty().append(content);
@@ -89,6 +90,14 @@ var _dc_common = {
 	        }); 
 			//console.log("Hello, we are here: "+blog_id);
 		});
+		
+		$('.blogList').on("click","button.settopnews",function(event) {
+			var blog_id = $(this).attr("value");			
+			$("#setRecommended").find(".invisibleid").attr("placeholder",blog_id);
+			$("#setRecommended").find(".invisibleid").attr("value",blog_id);
+			$('#setRecommended').modal();
+		});
+		
 	},
 };
 

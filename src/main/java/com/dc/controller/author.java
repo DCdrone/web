@@ -162,5 +162,17 @@ public class author {
 		map.put("msg", blogs);
         return map;  
 	}	
+	
+	@RequestMapping(value="/{authorid}/resources/topnews", method = { RequestMethod.POST })
+	public ModelAndView setTopnews(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^");
+		String photos = request.getParameter("photos");
+	    String blogid = request.getParameter("blogid");
+	    System.out.println(blogid);
+	    System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^");
+	    System.out.println(photos);
+		ModelAndView view = new ModelAndView("");
+		return view;
+	}
 }
 

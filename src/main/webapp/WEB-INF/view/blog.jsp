@@ -166,7 +166,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body posts">
                                     
-                                    <div class="row blogList">
+                                    <div class="row blogList" id="blogListId">
                                       
                                     </div>         
                                 </div>
@@ -245,6 +245,35 @@
             </div>
         </div>
         <!-- END MESSAGE BOX-->
+        
+        <div class="modal fade" id="setRecommended" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title col-sm-offset-2" id="myModalLabel">请导入图片</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<%=basePath%>author/${author}/resources/topnews" method="post" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="photos" class="col-sm-2 control-label">图片导入</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="photos" placeholder="请选择图片位置">
+                                </div>
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label for="blogid" class="col-sm-2 control-label" >文章ID</label>
+                                <div class="col-sm-8" >
+                                    <input type="text" class="form-control invisibleid" name="blogid" placeholder="请输入文章ID" >
+                                </div>
+                            </div>                                
+                            <button type="button" class="btn btn-default col-sm-offset-2" data-dismiss="modal">关闭</button>
+                                <input type="submit" value="生效" class="btn btn-primary">        
+                        </form>
+                     </div>
+                 </div><!-- /.modal-content -->
+              </div><!-- /.modal -->
+         </div>
 
         <!-- START PRELOADS -->
         <audio id="audio-alert" src="<%=basePath%>audio/alert.mp3" preload="auto"></audio>

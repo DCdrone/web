@@ -25,6 +25,7 @@
                 <div class="form-group">
                    <label for="password" class="col-sm-2 control-label">密码</label>
                      <div class="col-sm-8">
+                     
                        <input type="text" class="form-control" name="password" placeholder="请输入密码">
                      </div>
                 </div>                                
