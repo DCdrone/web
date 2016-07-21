@@ -6,5 +6,6 @@ import com.dc.entity.Blog;
 public interface TopnewsService {
 	public List<topnews> getAllTopnews();
 	public List<Blog> getLatestBlogs();
+	public boolean deleteByBlogId(int blogid);
 }
 

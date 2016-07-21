@@ -54,33 +54,40 @@ var _dc_common = {
                 $.each(data.msg, function(i, obj) {
                 	content += "<div class=\"col-md-12\">";
                	    content += "<div class=\"col-md-6\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">"+obj.title+"</a></div>";
-               	    content += "<div class=\"col-md-6\"><input class=\"btn btn-default pull-right removerecommended\" type=\"submit\" value=\"删除\">";
+               	    content += "<div class=\"col-md-6\"><span class=\"btn btn-default pull-right label label-default removerecommended\" value="+obj.blog_id+">删除";
                	    content += "</div></div>";
                 });
                 $('#recommended').empty().append(content);         
             }  
-            }); 
+        }); 
 	},
-	addClick: function() {
-		$('#recommended').on("click","input.removerecommended",function() {
-			/*var c_html = $('#editor').html();
-			var n_html = $('#etitle').html();
-			var s_html = $('#summary').html();
-			var send_data = "{\"content\":\""+c_html.replace(/\"/g,"\\\"")+"\",\"title\":\""+n_html.replace(/\"/g,"\\\"")+"\",\"summary\":\""+s_html.replace(/\"/g,"\\\"")+"\"}";
-			 $.ajax({  
-		         data:send_data,  
-		         type:"POST",  
-		         dataType: 'json', 
-		         contentType : 'application/json;charset=UTF-8',
-		         url:"<%=basePath%>author/${author}/resources/blog/${blog}",  
-		         error:function(data){  
-		            alert("更新文章内容失败！"+data.msg);  
-		         },  
-		         success:function(data){  
-		        	 history.go(0);
-		         }  
-		         }); */
-			console.log("Hello, we are here.");
+	addClick: function(basePath, author) {
+		$('#recommended').on("click","span.removerecommended",{basePath:basePath,author:author},function(event) {
+			var blog_id = $(this).attr("value");
+			//console.log(event.data.basePath);
+			//console.log(event.data.author);
+			var content = '';
+			$.ajax({  
+	   		    data:"",
+	            type:"POST",  
+	            dataType: 'json', 
+	            contentType : 'application/json;charset=UTF-8',
+	            url: basePath+"author/"+author+"/resources/topnews/"+blog_id+"/delete",  
+	            error:function(data){  
+	               alert("查询博客列表失败！"+data.msg);  
+	            },  
+	            success:function(data){  
+	                //console.log(data.msg);
+	                $.each(data.msg, function(i, obj) {
+	                	content += "<div class=\"col-md-12\">";
+	               	    content += "<div class=\"col-md-6\"><a href=\""+basePath+"author/"+author+"/blog/"+obj.blog_id+"\">"+obj.title+"</a></div>";
+	               	    content += "<div class=\"col-md-6\"><span class=\"btn btn-default pull-right label label-default removerecommended\" value="+obj.blog_id+">删除";
+	               	    content += "</div></div>";
+	                });
+	                $('#recommended').empty().append(content);         
+	            }  
+	        }); 
+			//console.log("Hello, we are here: "+blog_id);
 		});
 	},
 };

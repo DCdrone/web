@@ -259,8 +259,7 @@
 	        jQuery(function($) {
 			    _dc_common.getBlogList('<%=basePath%>',"${author}", 1);
 			    _dc_common.getRecommended('<%=basePath%>',"${author}");
-			    _dc_common.addClick();
-			    
+			    _dc_common.addClick('<%=basePath%>',"${author}");			    
 		    }); 	        	        
         </script>  
     </body>

@@ -92,15 +92,6 @@ public class author {
 		map.put("msg", gridBean);
         return map;  
 	}
-	
-	@RequestMapping(value = "/{authorid}/resources/recommendedlist", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
-	@ResponseBody
-	public Map<String,List<topnews>> listRecommended(@PathVariable String authorid) throws IOException{
-		Map<String,List<topnews>> map = new HashMap<String,List<topnews>>(1);
-		List<topnews> blogs = topnewsService.getAllTopnews();
-		map.put("msg", blogs);
-        return map;  
-	}
 
 	@RequestMapping(value = "/{id}/blog/{blogid}")
 	public ModelAndView blogEdit(@PathVariable String id, @PathVariable String blogid, HttpServletRequest request,HttpServletResponse response) throws IOException{  
@@ -152,5 +143,24 @@ public class author {
         return map;  
 	}
 	
+	@RequestMapping(value = "/{authorid}/resources/recommendedlist", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String,List<topnews>> listRecommended(@PathVariable String authorid) throws IOException{
+		Map<String,List<topnews>> map = new HashMap<String,List<topnews>>(1);
+		List<topnews> blogs = topnewsService.getAllTopnews();
+		map.put("msg", blogs);
+        return map;  
+	}
+	
+	@RequestMapping(value = "/{authorid}/resources/topnews/{blogid}/delete", method = { RequestMethod.POST }, produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String,List<topnews>> deleteTopnews(@PathVariable String authorid, @PathVariable Integer blogid) throws IOException{
+		System.out.println("XXXXXXXXXXXXXXXXXXXX");
+		Map<String,List<topnews>> map = new HashMap<String,List<topnews>>(1);
+		topnewsService.deleteByBlogId(blogid);
+		List<topnews> blogs = topnewsService.getAllTopnews();
+		map.put("msg", blogs);
+        return map;  
+	}	
 }
 

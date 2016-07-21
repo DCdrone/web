@@ -38,7 +38,10 @@ public class TopnewsServiceImpl implements TopnewsService {
 		} catch (Exception e) {
 			System.out.println("Error while get blogs:"+e);
 		}
-
 		return blogs;
+	}
+	
+	public boolean deleteByBlogId(int blogid) {
+		return this.topnews.deleteByBlogId(blogid);
 	}
 }
